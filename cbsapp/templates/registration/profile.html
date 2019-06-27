@@ -1,0 +1,32 @@
+{%extends "registration/base.html"%}
+
+{% load bootstrap4 %}
+{% load static%}
+
+{% block content %}
+
+  {% if title %}
+  <title>Profile - {{title}}</title>
+  {% else %}
+    <title> Profile</title>
+  {% endif %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
+  <div class="panel-footer">
+        <h4>
+
+          {{ profile_info.Location }}
+
+        </h4>
+
+
+  </div>
+
+{% endblock %}
