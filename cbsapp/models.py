@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Profile(models.Model):
-    Company = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     About = HTMLField(default="tell us someting bout your company")
     Email = models.EmailField()
     Location = models.CharField(max_length=50)
     Cell = models.CharField(max_length=12)
+    name = models.CharField(max_length=50,default='company name')
 
 
 
