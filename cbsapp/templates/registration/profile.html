@@ -5,19 +5,34 @@
 
 {% block content %}
 
-            {% if profile_info %}
-            <div class="panel-footer">
-                  <h4>
+  {% if title %}
+  <title>Profile - {{title}}</title>
+  {% else %}
+    <title> Profile</title>
+  {% endif %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 
-                    {{ profile_info.Location }}
 
-                  </h4>
+  <div class="panel-footer">
+    {% if profile_info %}
+        <h4>
 
+          {{ profile_info.Location }}</br>
+          <a href="{% url 'updateProfile' profile_info.id%}">updateProfile</a>
+
+        </h4>
 
             </div>
-            {%else%}
-            <div class="panel-footer">
-            <a href="{%url 'newProfile'%}">Create Profile</a>
-            </div>
+      {%else%}
 
+            <div class="panel-footer">
+            <a href="{% url 'newProfile' %}">Create Profile</a>
+            </div>
+      {%endif%}
 {% endblock %}
