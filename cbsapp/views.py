@@ -9,7 +9,11 @@ from django.core.urlresolvers import reverse
 
 
 # Create your views here.
+@login_required(login_url='/accounts/login/')
+def index(request):
+    return render(request, 'cbsapp/index.html')
 
+@login_required(login_url='/accounts/login/')
 def profile(request, username):
     '''
     function that returns user profile
@@ -26,12 +30,6 @@ def profile(request, username):
         profile_info = Profile.filter_by_id(profile.id)
 
     return render(request, 'registration/profile.html', {'title':title,'form':form,'profile_info':profile_info})
-
-
-
-
-
-
 
 @login_required(login_url='/accounts/login/')
 def update_profile(request):
