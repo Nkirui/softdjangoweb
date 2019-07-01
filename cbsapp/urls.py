@@ -11,4 +11,5 @@ urlpatterns = [
    url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
    url(r'^profile/update/', views.update_profile, name='update_profile'),
 
+
 ]

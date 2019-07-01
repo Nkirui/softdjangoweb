@@ -46,14 +46,14 @@ def update_profile(request):
         profile_info = Profile.filter_by_id(profile.id)
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            update = form.save(commit=False)
-            update.user = request.user
-            update.save()
-            messages.success(request,"Profile Updated")
-            return redirect('profile', username=request.user)
+            form = ProfileForm(request.POST)
+            if form.is_valid():
+                update = form.save(commit=False)
+                update.user = request.user
+                update.save()
+                messages.success(request,"Profile Updated")
+                return redirect('profile', username=request.user)
     else:
         form = ProfileForm()
 
-        return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})
+    return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})

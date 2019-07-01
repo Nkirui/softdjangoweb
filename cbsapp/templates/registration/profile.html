@@ -9,8 +9,6 @@
 .panel{
   position: relative;
   justify-content: center;
-  /* overflow: hidden; */
-  /* top: 5%; */
   text-align:center;
   left: 30%;
   margin-top:120px;
@@ -32,7 +30,7 @@
     <div class="panel-footer">
       <h3>
 
-        company name :   {{ profile_info.name }} <br>
+        company name :   {{ profile_info.name }} </br>
 
       </h3>
 
@@ -40,24 +38,37 @@
     <div class="panel-footer">
           <h4>
 
-          Contact :  {{ profile_info.Email }}
+          Email :  {{ profile_info.Email }}</br>
+          Contact :  {{ profile_info.Cell }}
+
 
           </h4>
     </div>
 
     <div class="panel-footer">
-      <p style="font-size:30px;">
+          <h6>
 
-         <a class="btn btn-lg btn-info" href="{% url 'update_profile'%}">Edit Profile</a>
-      </p>
+          About :  {{ profile_info.About }}
+
+
+
+        </h6>
     </div>
 
+
+
+    <div class="panel-footer">
+      <p style="font-size:30px;">
+
+         <a class="btn btn-lg btn-info" href="{% url 'update_profile' %}">Edit Profile</a>
+      </p>
+    </div>
       {% else %}
     <div class="panel-footer">
 
         <p style="font-size:30px;">
 
-           <a class="btn btn-lg btn-info" href="{% url 'update_profile'%}">Create Profile</a>
+           <a class="btn btn-lg btn-info" href="{% url 'update_profile' %}">Create Profile</a>
         </p>
 
     </div>
