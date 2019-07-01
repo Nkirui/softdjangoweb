@@ -1,8 +1,8 @@
 .navbar-default {
-    background-color: #F8F8F8;
-    border-color: #E7E7E7;
+    background-color: #581845;
+    border-color: #2e2e2e;
 }
-/* Title */
+/* Title
 .navbar-default .navbar-brand {
     color: #777;
 }
@@ -10,7 +10,7 @@
 .navbar-default .navbar-brand:focus {
     color: #5E5E5E;
 }
-/* Link */
+
 .navbar-default .navbar-nav > li > a {
     color: #777;
 }
@@ -46,7 +46,7 @@
     border-top-color: #555;
     border-bottom-color: #555;
 }
-/* Mobile version */
+
 .navbar-default .navbar-toggle {
     border-color: #DDD;
 }
@@ -65,4 +65,4 @@
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
           color: #333;
     }
-}
+} */

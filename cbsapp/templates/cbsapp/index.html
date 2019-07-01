@@ -1,5 +1,5 @@
-{% load bootstrap3 %}
-{% load bootstrap4 %}
+{% comment %} {% load bootstrap3 %}
+{% load bootstrap4 %} {% endcomment %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -13,10 +13,10 @@
     <title> softsearch CBS </title>
   {% endif %}
 
-  {% block styles %}
-    {% bootstrap_css %}
+  {% comment %} {% block styles %}
+    {% bootstrap_css %} {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  {% endblock %}
+  {% comment %} {% endblock %} {% endcomment %}
 
 </head>
 <body>
@@ -24,9 +24,9 @@
 
     {% block content %} {%endblock%}
 
-    {% block scripts %}
+    {% comment %} {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
-    {% endblock %}
+    {% endblock %} {% endcomment %}
 </body>
 </html>
