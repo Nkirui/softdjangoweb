@@ -21,7 +21,7 @@
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
       <span class="navbar-brand" href="/">Softsearch</span>
-      <img src="{% static 'images/menu-button.png' %}" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <img src="{% static 'images/menu-button.png' %}" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a href="/" data-scroll="#Logo" class="nav-item nav-link active">Home</a>
@@ -52,7 +52,7 @@
 
   .navbar{
     width: 100%;
-    background: linear-gradient(45deg, #fff 20%, rgb(65, 45, 156) 20%);
+    background: linear-gradient(45deg, #fff 20%, rgb(101, 95, 123) 20%);
     box-shadow: 0 0 20px 5px rgba(0, 0, 0);
   }
 
@@ -88,5 +88,12 @@
     content: "";
     opacity: 0;
     transition: all 0.3s;
+  }
+
+  nav a:after{
+    width: 30px;
+    border-radius: 20px;
+    bottom: 0px;
+    transform: translateX(-10px);
   }
 </style>
