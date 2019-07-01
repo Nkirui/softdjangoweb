@@ -9,7 +9,11 @@ from django.core.urlresolvers import reverse
 
 
 # Create your views here.
+@login_required(login_url='/accounts/login/')
+def index(request):
+    return render(request, 'cbsapp/index.html')
 
+@login_required(login_url='/accounts/login/')
 def profile(request, username):
     '''
     function that returns user profile
@@ -27,12 +31,6 @@ def profile(request, username):
 
     return render(request, 'registration/profile.html', {'title':title,'form':form,'profile_info':profile_info})
 
-
-
-
-
-
-
 @login_required(login_url='/accounts/login/')
 def update_profile(request):
     '''
@@ -46,14 +44,14 @@ def update_profile(request):
         profile_info = Profile.filter_by_id(profile.id)
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            update = form.save(commit=False)
-            update.user = request.user
-            update.save()
-            messages.success(request,"Profile Updated")
-            return redirect('profile', username=request.user)
+            form = ProfileForm(request.POST)
+            if form.is_valid():
+                update = form.save(commit=False)
+                update.user = request.user
+                update.save()
+                messages.success(request,"Profile Updated")
+                return redirect('profile', username=request.user)
     else:
         form = ProfileForm()
 
-        return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})
+    return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})
