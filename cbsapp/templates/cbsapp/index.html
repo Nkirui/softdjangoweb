@@ -1,0 +1,32 @@
+{% comment %} {% load bootstrap3 %}
+{% load bootstrap4 %} {% endcomment %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>softsearch CBS - {{title}}</title>
+  {% else %}
+    <title> softsearch CBS </title>
+  {% endif %}
+
+  {% comment %} {% block styles %}
+    {% bootstrap_css %} {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% comment %} {% endblock %} {% endcomment %}
+
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    {% block content %} {%endblock%}
+
+    {% comment %} {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %} {% endcomment %}
+</body>
+</html>
