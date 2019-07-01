@@ -1,68 +1,26 @@
-.navbar-default {
-    background-color: #581845;
-    border-color: #2e2e2e;
-}
-/* Title
-.navbar-default .navbar-brand {
-    color: #777;
-}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: #5E5E5E;
+html {
+  scroll-behavior: smooth;
 }
 
-.navbar-default .navbar-nav > li > a {
-    color: #777;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #333;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    color: #555;
-    background-color: #E7E7E7;
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-    color: #555;
-    background-color: #D5D5D5;
-}
-/* Caret */
-.navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #777;
-    border-bottom-color: #777;
-}
-.navbar-default .navbar-nav > .dropdown > a:hover .caret,
-.navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top-color: #333;
-    border-bottom-color: #333;
-}
-.navbar-default .navbar-nav > .open > a .caret,
-.navbar-default .navbar-nav > .open > a:hover .caret,
-.navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top-color: #555;
-    border-bottom-color: #555;
+body{
+  font-family: 'Raleway', sans-serif;
+  background-color: whitesmoke;
+  font-size: 20px;
+  overflow-x: hidden;
 }
 
-.navbar-default .navbar-toggle {
-    border-color: #DDD;
+hr{
+  visibility: hidden;
 }
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #DDD;
+
+.navbar{
+  width: 100%;
+  background: linear-gradient(45deg, #fff 20%, rgba(255, 255, 255, 0.9) 20%);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0);
 }
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #CCC;
+
+nav .navbar-brand{
+  border: 2px solid;
+  border-radius: 0 10px 0 10px;
+  padding: 3px;
 }
-@media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: #777;
-    }
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-          color: #333;
-    }
-} */

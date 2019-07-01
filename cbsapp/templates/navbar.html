@@ -7,14 +7,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>softsearch-CBS</title>
     <link href="https://fonts.googleapis.com/css?family=Megrim|Raleway|Sacramento|Russo+One|Kreon" rel="stylesheet">
-    <!-- <link rel="shortcut icon" href="images/logo.png"> -->
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 
-  {% block styles %}
+  <!-- {% block styles %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  {% endblock %}
+  {% endblock %} -->
 
   </head>
+
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+      <span class="navbar-brand" href="/">Softsearch</span>
+      <img src="{% static 'images/menu-button.png' %}" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a href="/" data-scroll="#Logo" class="nav-item nav-link active">Home</a>
+          <a href="#!" data-scroll="#services" class="nav-item nav-link">Services</a>
+          <a href="#!" data-scroll="#offers" class="nav-item nav-link">Offers</a>
+          <a href="#!" data-scroll="#support" class="nav-item nav-link">Support</a>
+        </div>
+      </div>
+    </nav>
+  </body>
 </html>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body{
+    font-family: 'Raleway', sans-serif;
+    background-color: whitesmoke;
+    font-size: 20px;
+    overflow-x: hidden;
+  }
+
+  hr{
+    visibility: hidden;
+  }
+
+  .navbar{
+    width: 100%;
+    background: linear-gradient(45deg, #fff 20%, rgba(255, 255, 255, 0.9) 20%);
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0);
+  }
+
+  nav .navbar-brand{
+    border: 2px solid;
+    border-radius: 0 10px 0 10px;
+    padding: 3px;
+    color: #000 !important;
+    font-family: 'Megrim', cursive;
+    font-size: 40px;
+    background: linear-gradient(35deg, #000, #bb981d, #fad25a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  nav a{
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+</style>
