@@ -10,6 +10,23 @@ from django.core.urlresolvers import reverse
 
 # Create your views here.
 
+
+def signup(request):
+    '''
+    registration function
+    '''
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)
+            return redirect('login')
+    else:
+        form = SignUpForm()
+
+    return render(request, 'registration/registration_form.html', {'form': form})
+
+
 def profile(request, username):
     '''
     function that returns user profile
@@ -25,10 +42,7 @@ def profile(request, username):
     except:
         profile_info = Profile.filter_by_id(profile.id)
 
-    return render(request, 'registration/profile.html', {'title':title,'form':form,'profile_info':profile_info})
-
-
-
+    return render(request, 'registration/profile.html', {'title':title,'form':form,'profile':profile,'profile_info':profile_info})
 
 
 
