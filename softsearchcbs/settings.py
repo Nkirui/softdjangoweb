@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'cbsapp',
     'tinymce',
     'bootstrap4',
-    
 ]
 
 MIDDLEWARE = [
