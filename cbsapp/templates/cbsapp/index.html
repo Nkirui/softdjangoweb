@@ -82,122 +82,141 @@
         <script src="{% static 'js/main.js' %}"></script>
     {% endblock %}
 
-    <style>
-      html, body{
-        height: 100%;
-      }
+<style>
+  html, body{
+    height: 100%;
+  }
 
-      body{
-        font-family: 'Comfortaa', cursive;
-        width: 100%;
-        height: 100%;
-        font-size: 15px;
-        line-height: 1.7;
-        color: #333333;
-        font-weight: 400;
-      }
+  body{
+    font-family: 'Comfortaa', cursive;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333333;
+    font-weight: 400;
+  }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6{
-        color: #333333;
-        font-weight: 600;
-      }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+    color: #333333;
+    font-weight: 600;
+  }
 
-      p {
-        letter-spacing: 0;
-        line-height: 1.8;
-      }
+  p {
+    letter-spacing: 0;
+    line-height: 1.8;
+  }
 
-      img{
-        max-width: 100%;
-        height: auto;
-      }
+  img{
+    max-width: 100%;
+    height: auto;
+  }
 
-      .section-padding{
-        padding: 60px 0;
-      }
+  .section-padding{
+    padding: 60px 0;
+  }
 
-      .section-header{
-        margin-bottom: inline-block;
-        text-align: center;
-      }
+  .section-header{
+    margin-bottom: inline-block;
+    text-align: center;
+  }
 
-      .section-header h2{
-        display: inline-block;
-        padding: 5px;
-        margin: 5px 0;
-      }
-      .line-one{
-        height: 1px;
-        width: 100px;
-        background: #E91E63;
-        display: block;
-        margin: 0 auto;
-        padding: 0;
-      }
+  .section-header h2{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  .line-one{
+    height: 1px;
+    width: 100px;
+    background: #E91E63;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+  }
 
-      .mouse-scroll {
-        position: absolute;
-        left:48%;
-        display: inline-block;
-        line-height: 18px;
-        font-size: 13px;
-        font-weight: normal;
-        color: #ffffff;
-        letter-spacing: 2px;
-        margin-top: 10%;
-        text-decoration: none;
-        overflow: hidden;
-      }
+  .mouse-scroll {
+    position: absolute;
+    left:48%;
+    display: inline-block;
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-top: 10%;
+    text-decoration: none;
+    overflow: hidden;
+  }
 
-      .mouse-scroll .mouse {
-        position: relative;
-        display: block;
-        width: 35px;
-        height: 60px;
-        margin: 0 auto 20px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        border: 3px solid #ffffff;
-        border-radius: 23px;
-      }
+  .mouse-scroll .mouse {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 60px;
+    margin: 0 auto 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid #ffffff;
+    border-radius: 23px;
+  }
 
-      .mouse-scroll .mouse .mouse-movement {
-        position: absolute;
-        display: block;
-        top: 29%;
-        left: 50%;
-        width: 8px;
-        height: 8px;
-        margin: -4px 0 0 -4px;
-        background: #ffffff;
-        border-radius: 50%;
-        -webkit-animation: scroll-ani 2s linear infinite;
-        animation: scroll-ani 2s linear infinite;
-      }
+  .mouse-scroll .mouse .mouse-movement {
+    position: absolute;
+    display: block;
+    top: 29%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    background: #ffffff;
+    border-radius: 50%;
+    -webkit-animation: scroll-ani 2s linear infinite;
+    animation: scroll-ani 2s linear infinite;
+  }
 
-      .banner-area{
-        background-image: url(img/home.jpeg); /*--edit image--*/
-        background-position: center;
-        background-size:cover;
-        position: relative;
-        height: 100%;
-      }
+  .banner-area{
+    background-image: url(img/home.jpeg); /*--edit image--*/
+    background-position: center;
+    background-size:cover;
+    position: relative;
+    height: 100%;
+  }
 
-      .banner-area::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        content: '';
-      }
+  .banner-area::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    content: '';
+  }
 
-    </style>
+  canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .banner-table{
+    display: table;
+    margin: 0;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+
+</style>
 </body>
 </html>
