@@ -15,21 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-<<<<<<< HEAD
-from django.contrib.auth import views 
-=======
+
 from django.contrib.auth import views
->>>>>>> 39baf019258d43f170378ec0efdc36ccbbe25435
+
+from django.contrib.auth import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('cbsapp.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 39baf019258d43f170378ec0efdc36ccbbe25435
 ]
