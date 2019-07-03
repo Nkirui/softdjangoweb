@@ -1,4 +1,4 @@
-from django.urls import path
+from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 from .import views
@@ -7,7 +7,7 @@ from .import views
 
 
 urlpatterns = [
-    path(r'^$', views.index, name='index'),
-    path(r'^user/(?P<username>\w+)', views.profile, name='profile'),
-    path(r'^profile/update/', views.update_profile, name='update_profile'),
+    url(r'^$', views.index, name='index'),
+    url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
+    url(r'^profile/update/', views.update_profile, name='update_profile'),
 ]
