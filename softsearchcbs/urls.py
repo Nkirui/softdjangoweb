@@ -13,23 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import path, include
 from django.contrib import admin
-<<<<<<< HEAD
-from django.contrib.auth import views 
-=======
-from django.contrib.auth import views
->>>>>>> 39baf019258d43f170378ec0efdc36ccbbe25435
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('cbsapp.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$', views.logout, {"next_page": '/'}),
-<<<<<<< HEAD
+    path('admin/', admin.site.urls),
+    path(r'', include('cbsapp.urls')),
+    # url(r'^accounts/', include('registration.backends.simple.urls')),
+    # url(r'^logout/$', views.logout, {"next_page": '/'}),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
 
-
-
-=======
->>>>>>> 39baf019258d43f170378ec0efdc36ccbbe25435
 ]

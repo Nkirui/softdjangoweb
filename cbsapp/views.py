@@ -2,30 +2,31 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import *
-from .forms import *
+from .forms import SignupForm, ProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse
+from django.urls  import reverse
 
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
+@login_required()
 def index(request):
     return render(request, 'cbsapp/index.html')
 
 
-def signup(request):
+def register(request):
     '''
     registration function
     '''
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()
-            auth_login(request, user)
-            return redirect('login')
+            username = form.get('username')
+            messages.success(request, f'Account created for {username}!')
+            return redirect('index')
     else:
-        form = SignUpForm()
+        form = SignupForm()
 
     return render(request, 'registration/registration_form.html', {'form': form})
 
@@ -50,7 +51,7 @@ def profile(request, username):
 
 
 
-@login_required(login_url='/accounts/login/')
+@login_required()
 def update_profile(request):
     '''
     function that updtates user profile
