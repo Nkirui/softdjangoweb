@@ -56,6 +56,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ACCOUNT_ACTIVATION_DAYS = 7
+
 ROOT_URLCONF = 'softsearchcbs.urls'
 
 TEMPLATES = [
@@ -75,7 +77,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'softsearchcbs.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
