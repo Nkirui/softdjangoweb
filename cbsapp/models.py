@@ -7,12 +7,12 @@ from django.db.models.signals import post_save
 # Create your models here.
 
 class Profile(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
-    About = HTMLField()
-    Email = models.EmailField()
-    Location = models.CharField(max_length=50)
-    Cell = models.CharField(max_length=12)
+    user = models.OneToOneField(User,on_delete=models.CASCADE, related_name='wewe', primary_key=True)
     name = models.CharField(max_length=50)
+    email = models.EmailField()
+    location = models.CharField(max_length=50)
+    cell = models.CharField(max_length=12)
+    about = HTMLField()
 
 
 

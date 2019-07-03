@@ -5,7 +5,7 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 
 # Create your views here.
@@ -13,7 +13,23 @@ from django.core.urlresolvers import reverse
 def index(request):
     return render(request, 'cbsapp/index.html')
 
-@login_required(login_url='/accounts/login/')
+
+def signup(request):
+    '''
+    registration function
+    '''
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)
+            return redirect('login')
+    else:
+        form = SignUpForm()
+
+    return render(request, 'registration/registration_form.html', {'form': form})
+
+
 def profile(request, username):
     '''
     function that returns user profile
@@ -29,7 +45,10 @@ def profile(request, username):
     except:
         profile_info = Profile.filter_by_id(profile.id)
 
-    return render(request, 'registration/profile.html', {'title':title,'form':form,'profile_info':profile_info})
+    return render(request, 'registration/profile.html', {'title':title,'form':form,'profile':profile,'profile_info':profile_info})
+
+
+
 
 @login_required(login_url='/accounts/login/')
 def update_profile(request):
