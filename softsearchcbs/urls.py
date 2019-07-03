@@ -16,14 +16,12 @@ Including another URLconf
 from django.urls import re_path, include
 from django.contrib import admin
 
-from django.contrib.auth import views
-
-from django.contrib.auth import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     # url(r'', include('softmain.urls')),
     re_path(r'', include('cbsapp.urls')),
-    re_path(r'^accounts/', include('registration.backends.simple.urls')),
-    re_path(r'^logout/$', views.logout, {"next_page": '/'}),
+    # re_path(r'^accounts/', include('registration.backends.simple.urls')),
+    re_path('logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout'),
 ]
