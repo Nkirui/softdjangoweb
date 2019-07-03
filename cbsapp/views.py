@@ -74,3 +74,8 @@ def update_profile(request):
         form = ProfileForm()
 
     return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})
+
+def activation_error(request):
+    """
+    Make sure you sign up with correct information
+    """
