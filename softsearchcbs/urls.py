@@ -27,10 +27,10 @@ urlpatterns = [
     re_path(r'', include('cbsapp.urls')),
     re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
-    path('register/', user_views.register, name='register'),
+    # path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
+    # path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    # path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
     re_path('logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout'),
 ]
 if settings.DEBUG:

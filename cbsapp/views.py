@@ -24,18 +24,9 @@ def register(request):
             return redirect('login')
     else:
         form = SignupForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'django_registration/registration_form.html', {'form': form})
 
 
-<<<<<<< HEAD
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
-=======
-    return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})
-
-def activation_error(request):
-    """
-    Make sure you sign up with correct information
-    """
->>>>>>> origin/master

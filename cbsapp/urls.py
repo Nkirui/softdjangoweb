@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    re_path(r'^$', views.index, name='index'),
-    re_path(r'^user/(?P<username>\w+)', views.profile, name='profile'),
-    re_path(r'^profile/update/', views.update_profile, name='update_profile'),
+    re_path(r'^$', views.home, name='home'),
+    re_path(r'^user/', views.profile, name='profile'),
+    # re_path(r'^profile/update/', views.update_profile, name='update_profile'),
 ]
