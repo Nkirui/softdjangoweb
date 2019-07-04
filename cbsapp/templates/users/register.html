@@ -1,4 +1,4 @@
-{%extends "django_registration/base.html"%} {% load bootstrap3 %}
+{%extends "registration/base.html"%} {% load bootstrap3 %}
 {% block content %}
 <div class="container">
   <div class="row">
@@ -15,7 +15,7 @@
         </div>
         <div class="panel-body">
 
-          <!-- <form  action="/accounts/register/" method="post" style="color:#0FA0CE;">
+          <form  action="/register/" method="post" style="color:#0FA0CE;">
             {% csrf_token %}
             {% bootstrap_form form %}
             <div class="form-group">
@@ -24,15 +24,7 @@
 
             <input type="hidden" name="next" value="{{next}}">
 
-          </form>  -->
-
-          <form method="post" class="form">
-           {% csrf_token %}
-           {% bootstrap_form form %}
-           {% bootstrap_javascript jquery=True %}
-           {% bootstrap_messages %}
-           <button type="submit" class="btn btn-success">Join Us</button>
-         </form>
+          </form>
 
         </div>
 

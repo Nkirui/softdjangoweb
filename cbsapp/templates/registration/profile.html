@@ -4,20 +4,12 @@
 {% load static%}
 
 {% block content %}
-<!-- {{profile_details.contact | safe}}
-{{profile_details.user | upper}}
-sty
-<div class="container">
-  <div class="row">
-    <!-- <div class="col-md-2"></div> -->
-    <!-- <div class="col-md-8"> -->
 
 <style>
+
 .panel{
   position: relative;
   justify-content: center;
-  /* overflow: hidden; */
-  /* top: 5%; */
   text-align:center;
   left: 30%;
   margin-top:120px;
@@ -26,6 +18,9 @@ sty
     font-size:12px;
     font-family: 'Roboto', sans-serif;
     line-height: 50px;
+}
+body{
+  background-color: #343141;
 }
 </style>
 
@@ -45,7 +40,7 @@ sty
             <div class="panel-footer">
                   <h3>
 
-                  Company :   {{ profile_info.name }} <br>
+                  Company :   {{ profile_info.company_owner }} <br>
 
                 </h3>
 
@@ -54,7 +49,7 @@ sty
                   <h4>
 
                   Email :  {{ profile_info.email }}</br>
-                  Cell :  {{ profile_info.cell }}</br>
+                  Cell :  {{ profile_info.contact }}</br>
 
                   </h4>
 
@@ -72,12 +67,23 @@ sty
             <div class="panel-footer">
                   <h4>
                     <b>About Us</b></br>
-                    {{ profile_info.about }}
+                    {{ profile_info.about_company }}
 
                   </h4>
 
 
             </div>
+
+            <div class="panel-footer">
+
+              <section class="icons-section" >
+        <a href="/logout">logout</a>
+  </section>
+
+            </div>
+
+
+
 
         </div>
 
