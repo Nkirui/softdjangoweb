@@ -22,6 +22,7 @@ urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     # url(r'', include('softmain.urls')),
     re_path(r'', include('cbsapp.urls')),
+    re_path(r'', include('cbsblog.urls')),
     re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
     re_path('logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout'),
