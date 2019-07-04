@@ -9,7 +9,8 @@ from django.db.models.signals import post_save
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='wewe',primary_key=True)
     company_owner = models.CharField(max_length=50)
-    email = models.EmailField()
+    company_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=200)
     location = models.CharField(max_length=50)
     contact = models.CharField(max_length=12)
     about_company = models.CharField(max_length=200)
