@@ -9,7 +9,7 @@ from django.urls import reverse
 
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
+#@login_required(login_url='/accounts/login/')
 def index(request):
     return render(request, 'cbsapp/index.html')
 
@@ -50,7 +50,7 @@ def profile(request, username):
 
 
 
-@login_required(login_url='/accounts/login/')
+#@login_required(login_url='/accounts/login/')
 def update_profile(request):
     '''
     function that updtates user profile
