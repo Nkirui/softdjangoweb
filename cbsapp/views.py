@@ -8,11 +8,7 @@ from django.urls import reverse
 
 @login_required
 def home(request):
-
-    return HttpResponse('my project')
-
-
-
+    return render(request, 'cbsapp/index.html')
 
 def register(request):
     if request.method == 'POST':
