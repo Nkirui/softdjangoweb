@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm
+from .forms import RegistrationForm
 from django.http  import HttpResponse
 from django.urls import reverse
 
@@ -12,7 +12,7 @@ def home(request):
 
 def register(request):
     if request.method == 'POST':
-        form = SignupForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
