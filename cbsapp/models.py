@@ -9,14 +9,9 @@ from django.db.models.signals import post_save
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='wewe',primary_key=True)
     company_owner = models.CharField(max_length=50)
-    email = models.EmailField()
     location = models.CharField(max_length=50)
     contact = models.CharField(max_length=12)
     about_company = models.CharField(max_length=200)
-
-
-
-
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -44,3 +39,6 @@ class Profile(models.Model):
     def get_by_id(cls, id):
         profile = Profile.objects.get(user = id)
         return profile
+
+class ExampleModel(models.Model):
+    field = models.CharField(max_length=50)
