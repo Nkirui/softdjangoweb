@@ -26,7 +26,7 @@ def register(request):
             return redirect('create_profile')
     else:
         form = SignupForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'django_registration/registration_form.html', {'form': form})
 
 
 @login_required

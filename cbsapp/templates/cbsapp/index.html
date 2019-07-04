@@ -1,11 +1,16 @@
-{% comment %} {% load bootstrap3 %}
-{% load bootstrap4 %} {% endcomment %}
 {% load static %}
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
+
+
 
   {% if title %}
   <title>softsearch CBS - {{title}}</title>
@@ -13,20 +18,421 @@
     <title> softsearch CBS </title>
   {% endif %}
 
-  {% comment %} {% block styles %}
-    {% bootstrap_css %} {% endcomment %}
+  {% block styles %}
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.animatedheadline.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  {% comment %} {% endblock %} {% endcomment %}
+    <!-- <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"> -->
+  {% endblock %}
 
 </head>
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} {%endblock%}
 
-    {% comment %} {% block scripts %}
+    {% block content %}
+
+    {%endblock%}
+    <div class="banner-area" id="home">
+      <div class="banner-table">
+        <div class="banner-table-cell">
+          <div class="welcome-text">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <section class="intro animate-scale">
+                    <h3>welcome to</h3>
+                    <h1 class="ah-headline">
+                      <span class="ah-word-wrapper">
+                        <b class="is-visible">Softsearch Comprehensive</b>
+                        <b>Business Solution</b>
+                      </span>
+                    </h1>
+                    <a href="#offers" class="banner-btn">Check offers</a>
+                  </section>
+                  <a href="mouse-scroll hidden-xs" href="#about">
+                    <span class="mouse">
+                      <span class="mouse-movement"></span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="offers" class="services-area section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-header wow fadeInDown" data-wow-delay="0.2s">
+              <p class="line-one"></p>
+              <h2>Our Offers</h2>
+              <p class="line-one"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div id="services-carousel" class="owl-carousel owl-theme">
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <div class="services-content">
+                <h3>PoS- 20%</h3>
+              </div>
+            </div>
+
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fab fa-js-square"></i>
+              </div>
+              <div class="services-content">
+                <h3>Websites -15%</h3>
+              </div>
+            </div>
+
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fab fa-android"></i>
+              </div>
+              <div class="services-content">
+                <h3>Mobile Apps - 17%</h3>
+              </div>
+            </div>
+
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <div class="services-content">
+                <h3>Fleet - 8%</h3>
+              </div>
+            </div>
+
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fas fa-money-bill"></i>
+              </div>
+              <div class="services-content">
+                <h3>Payroll System - 8%</h3>
+              </div>
+            </div>
+
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <div class="services-content">
+                <h3>HR Management - 8%</h3>
+              </div>
+            </div>
+
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <div class="services-content">
+                <h3>Cloud Services - 3%</h3>
+              </div>
+            </div>
+
+            <div class="single-services text-center item">
+              <div class="services-icon">
+                <i class="fas fa-hospital-symbol"></i>
+              </div>
+              <div class="services-content">
+                <h3>Hospital Systems - 4%</h3>
+              </div>
+            </div>
+
+              <div class="single-services text-center item">
+                <div class="services-icon">
+                  <i class="fas fa-book"></i>
+                </div>
+                <div class="services-content">
+                  <h3>Learning System - 15%</h3>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
-    {% endblock %} {% endcomment %}
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/32980a08f3.js"></script>
+        <!-- <script src="{% static 'js/jquery.magnific-popup.js' %}"></script> -->
+        <script src="{% static 'js/owl.carousel.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <!-- <script src="{% static 'js/jquery.animatedheadline.js' %}"></script>
+        <script src="{% static 'js/jquery.waypoints.js' %}"></script> -->
+        <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+        <!-- <script src="{% static 'js/validator.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script> -->
+    {% endblock %}
+
+<style>
+  html, body{
+    height: 100%;
+  }
+
+  body{
+    font-family: 'Comfortaa', cursive;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333333;
+    font-weight: 400;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+    color: #333333;
+    font-weight: 600;
+  }
+
+  p {
+    letter-spacing: 0;
+    line-height: 1.8;
+  }
+
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+
+  .section-padding{
+    padding: 60px 0;
+  }
+
+  .section-header{
+    margin-bottom: inline-block;
+    text-align: center;
+  }
+
+  .section-header h2{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  .line-one{
+    height: 1px;
+    width: 100px;
+    background: #E91E63;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .mouse-scroll {
+    position: absolute;
+    left:48%;
+    display: inline-block;
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: normal;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-top: 10%;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .mouse-scroll .mouse {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 60px;
+    margin: 0 auto 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid #ffffff;
+    border-radius: 23px;
+  }
+
+  .mouse-scroll .mouse .mouse-movement {
+    position: absolute;
+    display: block;
+    top: 29%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    background: #ffffff;
+    border-radius: 50%;
+    -webkit-animation: scroll-ani 2s linear infinite;
+    animation: scroll-ani 2s linear infinite;
+  }
+
+  .banner-area{
+    background-image: url({% static 'images/home.jpg' %}); /*--edit image--*/
+    background-position: center;
+    background-size:cover;
+    position: relative;
+    height: 100%;
+  }
+
+  .banner-area::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    content: '';
+  }
+
+  canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .banner-table{
+    display: table;
+    margin: 0;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .banner-table-cell{
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+  }
+
+  .welcome-text .intro h2 {
+      color: #fff;
+      font-size: 85px;
+      font-weight: 800;
+      margin-bottom: 10px;
+  }
+
+  .intro h1 {
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: 200;
+    margin: 0;
+  }
+
+  .ah-headline.clip .ah-words-wrapper::after {
+      background-color: #fff;
+  }
+
+  .banner-btn {
+    background: #E91E63;
+    text-decoration: none;
+    padding: 10px 30px;
+    display: inline-block;
+    margin-top: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+  }
+
+  .banner-btn:hover, .banner-btn:focus {
+      text-decoration: none;
+      color: #ffffff;
+  }
+
+  .welcome-text h3 {
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .services-area {
+    background: whitesmoke;
+  }
+
+  .services-icon i {
+    font-size: 35px;
+    color: #E91E63;
+  }
+
+  .single-services:hover i{
+    color: #212121;
+  }
+
+  .services-content h3{
+    line-height: 1.9;
+    text-transform: uppercase;
+  }
+
+  .services-icon{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    padding: 20px;
+  }
+
+  .single-services{
+    padding: 40px 20px;
+    margin: 0 15px 15px;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+</style>
+
+<script>
+
+    $(document).ready(function () {
+      'use strict';
+
+      new WOW().init();
+
+      $("#services-carousel").owlCarousel({
+      		navigation: false,
+      		pagination: true,
+      		slideSpeed: 800,
+      		paginationSpeed: 800,
+      		smartSpeed: 500,
+      		autoplay: true,
+      		singleItem: true,
+      		loop: true,
+      		responsive:{
+      			0:{
+      				items:1
+      			},
+      			680:{
+      				items:2
+      			},
+      			1000:{
+      				items:3
+      			}
+      		}
+      	});
+
+    });
+</script>
 </body>
 </html>
