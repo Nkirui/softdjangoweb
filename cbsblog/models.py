@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import permalink
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -9,12 +9,11 @@ class Blog(models.Model):
     body = models.TextField()
     posted = models.DateField(db_index=True, auto_now_add=True)
     posted_by = models.CharField(max_length=100)
-    category = models.ManyToMany('blog.Category')
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     def __unicode__(self):
         return '%s' % self.title
 
-    @permalink
     def get_absolute_url(self):
         return ('view_blog_post', None, { 'slug': self.slug })
 
@@ -25,6 +24,5 @@ class Category(models.Model):
     def __unicode__(self):
         return '%s' % self.title
 
-    @permalink
     def get_absolute_url(self):
         return ('view_blog_category', None, { 'slug': self.slug })
