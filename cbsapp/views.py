@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import SignupForm
 from django.http  import HttpResponse
-
+from django.urls import reverse
 
 
 @login_required
@@ -27,6 +27,15 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
+<<<<<<< HEAD
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
+=======
+    return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})
+
+def activation_error(request):
+    """
+    Make sure you sign up with correct information
+    """
+>>>>>>> origin/master

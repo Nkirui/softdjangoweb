@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>softsearch-CBS</title>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
@@ -24,10 +23,12 @@
       <img src="{% static 'images/menu-button.png' %}" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a href="/" data-scroll="#Logo" class="nav-item nav-link active">Home</a>
-          <a href="#!" data-scroll="#services" class="nav-item nav-link">Services</a>
-          <a href="#!" data-scroll="#offers" class="nav-item nav-link">Offers</a>
+          <a href="#home" class="nav-item nav-link active">Home</a>
+          <a href="#!" data-scroll="#about" class="nav-item nav-link">About</a>
+          <a href="#!" data-scroll="#products" class="nav-item nav-link">Products</a>
+          <a href="#offers" data-scroll="#offers" class="nav-item nav-link">Offers</a>
           <a href="#!" data-scroll="#support" class="nav-item nav-link">Support</a>
+          <a href="/user/fatahrez" class="nav-item nav-link">Profile</a>
         </div>
       </div>
     </nav>

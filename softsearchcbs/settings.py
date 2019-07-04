@@ -42,9 +42,10 @@ INSTALLED_APPS = [
     'cbsapp',
     'tinymce',
     'bootstrap4',
-
     'crispy_forms',
+    'django_registration',
 ]
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ACCOUNT_ACTIVATION_DAYS = 7
 
 ROOT_URLCONF = 'softsearchcbs.urls'
 
@@ -75,7 +78,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'softsearchcbs.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -105,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Internationalization
