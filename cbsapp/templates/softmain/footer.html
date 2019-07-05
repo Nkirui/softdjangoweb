@@ -1,0 +1,121 @@
+{% extends 'softmain/base.html' %}
+{% load static %}
+
+{% block footer %}
+<!-- footer -->
+<footer class="py-5">
+	<div class="container">
+		<div class="footer-logo text-center">
+			<a class="navbar-brand" href="#">Softsearch</a>
+		</div>
+		<div class="copyright text-center p-3">
+			<p>© 2019 Softsearch. All Rights Reserved | Design by <a href="#"> Softsearch</a> </p>
+		</div>
+		<div class="agileinfo-grids">
+			<div class="agile-grid-left agile-grid-right text-center">
+				<div class="social mt-3">
+					<ul>
+						<li><a href="https://www.facebook.com/softsearchLtd/?epa=SEARCH_BOX"><i class="fab mr-2 fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/SoftSearchLimi2"><i class="fab mr-2 fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/softsearch_limited/"><i class="fab mr-2 fa-instagram"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/softsearch-ltd-ba055417a/"><i class="fab mr-2 fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- //footer -->
+
+    <!--
+    Essential Scripts
+    =====================================-->
+
+    <!-- <script src="js/jquery.counterup.js"></script> -->
+
+    <!-- Main jQuery -->
+
+    <script src="js/jquery.min.js"></script>
+     <script src="js/script.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <!--  -->
+    <script src="plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <!-- Mixit Up JS -->
+    <script src="plugins/mixitup/dist/mixitup.min.js"></script>
+    <!-- <script src="plugins/count-down/jquery.lwtCountdown-1.0.js"></script> -->
+    <script src="plugins/SyoTimer/build/jquery.syotimer.min.js"></script>
+
+
+    <!-- Form Validator -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+
+
+
+    <!-- Google Map -->
+    <script src="plugins/google-map/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+
+	// navigation click actions
+	$('.scroll-link').on('click', function(event){
+		event.preventDefault();
+    //alert("You Are Good To Go");
+		var sectionID = $(this).attr("data-id");
+		scrollToID('#' + sectionID, 750);
+	});
+	// scroll to top action
+	$('.scroll-top').on('click', function(event) {
+		event.preventDefault();
+		$('html, body').animate({scrollTop:0}, 'slow');
+	});
+	// mobile nav toggle
+	$('#nav-toggle').on('click', function (event) {
+		event.preventDefault();
+		$('#main-nav').toggleClass("open");
+	});
+	$('#show-panels').click(function()
+					 {
+						$('.panels').slideDown();
+						$('#show-again').show();
+						$('#show-panels').hide();
+
+					 });
+	$('#show-again').click(function()
+						   {
+							$('.panels').slideUp();
+							//$('.panels').hide();
+							$('#show-again').hide();
+						$('#show-panels').show();
+						   })
+
+});
+// scroll function
+function scrollToID(id, speed){
+	var offSet = 50;
+	var targetOffset = $(id).offset().top - offSet;
+	var mainNav = $('#main-nav');
+	$('html,body').animate({scrollTop:targetOffset}, speed);
+	if (mainNav.hasClass("open")) {
+		mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+		mainNav.removeClass("open");
+	}
+}
+if (typeof console === "undefined") {
+    console = {
+        log: function() { }
+    };
+}
+
+</script>
+
+{% endblock footer %}
