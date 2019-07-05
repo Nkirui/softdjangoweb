@@ -1,7 +1,7 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block nav%}
-<!-- Header Start -->
+
 <header class="navigation"  id="home">
 	<div class="container">
 		<div class="row">
@@ -57,6 +57,24 @@
                   </div>
                 </li>
 
+							<a class="navbar-brand" href="index.html">
+								<img src="{% static './images/pp.jpeg' %}" style="max-width:250%;max-height:250%;"  alt="Logo">
+							</a>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+						
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="ion-ios-arrow-down"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Software Development</a></li>
+                    <li><a href="#">System Integration</a></li>
+                    <li><a href="#">Web Design and Development</a></li>
+                    <li><a href="#">Mobile Applications Development</a></li>
+									</ul>
+								</li>
+							
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="ion-ios-arrow-down"></span></a>
 									<ul class="dropdown-menu">
@@ -70,6 +88,7 @@
                     <li><a href="#">CRM- Customer Relationship Management System </a></li>
                     <li><a href="#">Bulk SMS </a></li>
                     <li><a href="#">ERP- Enterprise Resource Planning System </a></li>
+										<li><a href="#">Hospital Management System </a></li>
 									</ul>
 								</li>
 								<li>
@@ -80,6 +99,12 @@
                 <li><a href="#">Blog</a></li>
               </ul>
               </div>
+								
+								</li>
+                <li><a class="scroll-link" href="#" data-id="contact">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+							</ul>
+
 							</div><!-- /.navbar-collapse -->
 							</div><!-- /.container-fluid -->
 						</nav>
@@ -87,6 +112,5 @@
 				</div>
 			</div>
 			</header><!-- header close -->
-
 
 			{% endblock nav%}

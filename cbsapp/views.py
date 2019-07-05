@@ -6,7 +6,7 @@ from django.http  import HttpResponse
 from django.urls import reverse
 
 
-
+# Create your views here.
 @login_required
 def home(request):
     return render(request, 'cbsapp/index.html')
@@ -26,4 +26,3 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
-
