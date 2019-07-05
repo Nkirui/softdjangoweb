@@ -1,76 +1,29 @@
-from django.shortcuts import render
-from django.http import HttpResponse, Http404,HttpResponseRedirect
-from django.shortcuts import render,redirect,get_object_or_404
-from .models import *
-from .forms import *
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .forms import RegistrationForm
+from django.http  import HttpResponse
 from django.urls import reverse
 
 
-# Create your views here.
-#@login_required(login_url='/accounts/login/')
-def index(request):
+
+@login_required
+def home(request):
     return render(request, 'cbsapp/index.html')
 
-
-def signup(request):
-    '''
-    registration function
-    '''
+def register(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            auth_login(request, user)
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('login')
     else:
-        form = SignUpForm()
+        form = SignupForm()
+    return render(request, 'django_registration/registration_form.html', {'form': form})
 
-    return render(request, 'registration/registration_form.html', {'form': form})
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')
 
-
-def profile(request, username):
-    '''
-    function that returns user profile
-    '''
-    title = "Profile"
-    profile = User.objects.get(username=username)
-    users = User.objects.get(username=username)
-    id = request.user.id
-    form = ProfileForm()
-
-    try :
-        profile_info = Profile.get_by_id(profile.id)
-    except:
-        profile_info = Profile.filter_by_id(profile.id)
-
-    return render(request, 'registration/profile.html', {'title':title,'form':form,'profile':profile,'profile_info':profile_info})
-
-
-
-
-#@login_required(login_url='/accounts/login/')
-def update_profile(request):
-    '''
-    function that updtates user profile
-    '''
-
-    profile = User.objects.get(username=request.user)
-    try :
-        profile_info = Profile.get_by_id(profile.id)
-    except:
-        profile_info = Profile.filter_by_id(profile.id)
-
-    if request.method == 'POST':
-            form = ProfileForm(request.POST)
-            if form.is_valid():
-                update = form.save(commit=False)
-                update.user = request.user
-                update.save()
-                messages.success(request,"Profile Updated")
-                return redirect('profile', username=request.user)
-    else:
-        form = ProfileForm()
-
-    return render(request, 'registration/updateProfile.html', {'form':form, 'profile_info':profile_info})
