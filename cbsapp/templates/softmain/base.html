@@ -1,0 +1,57 @@
+{% load bootstrap4 %}
+{% load static%}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Softsearch">
+  
+  <meta name="author" content="Softsearch">
+
+  {% if title %}
+  <title>Softsearch - {{title}}</title>
+  {% else %}
+    <title> </title>
+  {% endif %}
+  <meta name="google-site-verification" content="Mb2V4zg6ArtvbhR14Xtis2WTKeYTPDlp1Jpgu7xTKHQ" />
+  <!-- Mobile Specific Meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" />
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static './plugins/bootstrap/css/bootstrap.min.css' %} "/>
+  
+  <!-- Ionic Icon Css -->
+  <link rel="stylesheet" href="{% static './plugins/Ionicons/css/ionicons.min.css' %} ">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="{% static './plugins/animate-css/animate.css' %} ">
+  <!-- Magnify Popup -->
+  <link rel="stylesheet" href="{% static './plugins/magnific-popup/dist/magnific-popup.css'%} ">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="{% static './plugins/slick-carousel/slick/slick.css' %} ">
+  <link rel="stylesheet" href="{% static './plugins/slick-carousel/slick/slick-theme.css' %} ">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static './css/style.css' %} ">
+  <link rel="stylesheet" href="{% static './css/content.css'%}">
+<!-- font-awesome icons -->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<!-- Font-Awesome-Icons-CSS -->
+<!-- Font-Awesome-Icons-CSS -->
+</head>
+<body id="body">
+  <!-- {% include 'softmain/navbar.html' %} -->
+  {% block nav%}
+  {% endblock nav %}
+  {% block content %}
+  
+  
+  {% endblock %}
+
+</body>
+</html>
