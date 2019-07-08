@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from cbsapp import views as user_views
 
 urlpatterns = [
-    path(r'^admin/', admin.site.urls),
+    path(r'admin/', admin.site.urls),
     # url(r'', include('softmain.urls')),
     path(r'', include('cbsapp.urls')),
     # re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
