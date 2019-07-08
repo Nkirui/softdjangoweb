@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'softmain',
-    'django_registration',
     'cbsblog',
 ]
 
@@ -57,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware'
 ]
 
 ACCOUNT_ACTIVATION_DAYS = 7

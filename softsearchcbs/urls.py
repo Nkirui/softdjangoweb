@@ -22,17 +22,19 @@ from django.conf.urls.static import static
 from cbsapp import views as user_views
 
 urlpatterns = [
-    re_path(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    # url(r'', include('softmain.urls')),
+    path('', include('cbsapp.urls')),
     re_path(r'', include('softmain.urls')),
-    re_path(r'^cbs', include('cbsapp.urls')),
     re_path(r'', include('cbsblog.urls')),
-    re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
-    re_path(r'^accounts/', include('django.contrib.auth.urls')),
-    # path('register/', user_views.register, name='register'),
+    # re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
+    # re_path(r'^accounts/', include('django.contrib.auth.urls')),
+    path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
-    # path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    # path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout')
-    re_path('logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout')
-]
+    path('profile/update',user_views.update_profile, name='update_profile'),
+    path('create_profile/', user_views.create_profile,name='create_profile'),
+    path('logout/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

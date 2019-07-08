@@ -1,6 +1,13 @@
 {% extends "registration/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container">
+  <div class="row">
+    <!-- empty div -->
+    <div class=" col-md-4"></div>
+
+    <!-- form div -->
+    <div class="col-md-2">
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
@@ -9,7 +16,7 @@
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
+                <button class="btn btn-primary type="submit">Login</button>
             </div>
         </form>
         <div class="border-top pt-3">
@@ -18,4 +25,12 @@
             </small>
         </div>
     </div>
+
+  </div>
+  <!-- emty div -->
+  <div class="col-md-4"></div>
+
+</div>
+</div>
+
 {% endblock content %}

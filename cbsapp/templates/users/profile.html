@@ -1,14 +1,86 @@
-{% extends "django_registration/base.html" %}
-{% load crispy_forms_tags %}
+{%extends "django_registration/base.html"%}
+
+{% load bootstrap4 %}
+{% load static%}
+
 {% block content %}
-    <div class="content-section">
-      <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-          <h2 class="account-heading">{{ user.username }}</h2>
-          <p class="text-secondary">{{ user.email }}</p>
+
+<style>
+
+.panel{
+  position: relative;
+  justify-content: center;
+  text-align:center;
+  left: 30%;
+  margin-top:120px;
+}
+* {
+    font-size:12px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 50px;
+}
+body{
+  background-color: #343141;
+}
+</style>
+        <div class="panel panel-success text-center" style="width:440px;height:auto;border:3px double #0E5582;">
+
+            <div class="panel-body">
+
+                    <h3>
+
+                      {{ user.username }} <br>
+
+                  </h3>
+
+
+
+            </div>
+            {% for p in profile%}
+            <div class="panel-footer">
+                  <h3>
+
+                  Company Owner :   {{ p.company_owner }} <br>
+                  Company Name :   {{ p.company_name }} <br>
+
+                </h3>
+
+            </div>
+            <div class="panel-footer">
+                  <h4>
+
+                  Email :  {{user.email }}</br>
+                  Cell :  {{ p.contact }}</br>
+
+                  </h4>
+
+            </div>
+            <div class="panel-footer">
+                  <h4>
+                    <b>About Us</b></br>
+                    {{ p.about_company }}
+
+                  </h4>
+
+         {% endfor %}
+            </div>
+
+            <div class="panel-footer">
+
+              <section class="icons-section" >
+        <a href="/logout">logout</a>
+  </section>
+
+            </div>
+
+
+
+
         </div>
-      </div>
-      <!-- FORM HERE -->
+
     </div>
-{% endblock content %}
+
+  <hr>
+
+</div>
+{% endblock %}
