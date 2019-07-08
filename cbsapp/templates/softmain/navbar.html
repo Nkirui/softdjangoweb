@@ -1,0 +1,90 @@
+{% load bootstrap4 %}
+{% load static %}
+{% block nav%}
+<!-- Header Start -->
+<header class="navigation"  id="home">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- header Nav Start -->
+				<nav class="navbar">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							</button>
+
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <div class="company">
+                  <img src="{% static 'images/logo.png' %}" alt="Img">
+              </div>
+              <div class="nav-section">
+							<ul class="nav navbar-nav navbar-right">
+
+								<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="ion-ios-arrow-down"></span></a>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-content">
+									<ul>
+                    <h3> SoftSearch Services </h3>
+										<li><a href="#">Value Added Services</a></li>
+                    <li><a href="#">Strategy and Consultation</a></li>
+                    <li><a href="#">Support and Maintenance</a></li>
+
+                    </ul>
+                    <ul>
+                      <h3> Design and Development </h3>
+                      <li><a href="#">Software Development</a></li>
+                      <li><a href="#">System Integration</a></li>
+                      <li><a href="#">Web Design and Development</a></li>
+                      <li><a href="#">Mobile Applications Development</a></li>
+                    </ul>
+                  <ul>
+                    <h3> Data storage and Processing </h3>
+                    <li><a href="#">Cloud Technology Services </a></li>
+                    <li><a href="#">Hosting Services </a></li>
+                    <li><a href="#">Data Management </a></li>
+                    <li><a href="#">Data Backup Services </a></li>
+                    <li><a href="#">Database Design and Management </a></li>
+                  </ul>
+                  </div>
+                  </div>
+                </li>
+
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="ion-ios-arrow-down"></span></a>
+									<ul class="dropdown-menu">
+                    <li><a href="#">Fleet Management System</a></li>
+										<li><a href="#">Learning Management System</a></li>
+										<li><a href="#">HR Management System</a></li>
+                    <li><a href="#">Hospital Management System </a></li>
+                    <li><a href="#">Procurement and Supplier Management System</a></li>
+                    <li><a href="#">Payroll Management System </a></li>
+                    <li><a href="#">Asset Management System </a></li>
+                    <li><a href="#">CRM- Customer Relationship Management System </a></li>
+                    <li><a href="#">Bulk SMS </a></li>
+                    <li><a href="#">ERP- Enterprise Resource Planning System </a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle scroll-link" data-id="about" aria-expanded="false">About Us</a>
+
+								</li>
+                <li><a class="scroll-link" href="#" data-id="contact">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+              </div>
+							</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+			</header>
+			{% endblock nav%}

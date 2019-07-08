@@ -1,33 +1,30 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, UserUpdateForm, ProfileUpdateForm, ProfileForm
+from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, ProfileForm
 from django.http  import HttpResponse
 from .models import Profile
 
 
 
 
+
+# Create your views here.
 @login_required
 def home(request):
-
-    return HttpResponse('my project')
-
-
-
+    return render(request, 'cbsapp/index.html')
 
 def register(request):
     if request.method == 'POST':
-        form = SignupForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('create_profile')
     else:
-        form = SignupForm()
+        form = RegistrationForm()
     return render(request, 'django_registration/registration_form.html', {'form': form})
-
 
 @login_required
 def profile(request):
@@ -65,7 +62,7 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('profile')
+            return redirect('home')
 
     else:
         user_form = UserUpdateForm(instance=request.user)
