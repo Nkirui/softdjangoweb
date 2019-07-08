@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, UserUpdateForm, ProfileUpdateForm, ProfileForm
+from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, ProfileForm
 from django.http  import HttpResponse
 from .models import Profile
+
 
 
 
@@ -22,7 +23,7 @@ def register(request):
             messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('create_profile')
     else:
-        form = SignupForm()
+        form = RegistrationForm()
     return render(request, 'django_registration/registration_form.html', {'form': form})
 
 @login_required
@@ -61,7 +62,7 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('profile')
+            return redirect('home')
 
     else:
         user_form = UserUpdateForm(instance=request.user)
