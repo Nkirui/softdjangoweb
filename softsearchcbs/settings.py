@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'bootstrap3',
-    'cbsapp',
+    'cbsapp' ,
     'tinymce',
     'bootstrap4',
     'crispy_forms',
+    'softmain',
     'django_registration',
+    'cbsblog',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -130,6 +132,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

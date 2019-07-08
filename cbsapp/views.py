@@ -8,17 +8,14 @@ from .models import Profile
 
 
 
+# Create your views here.
 @login_required
 def home(request):
-
-    return HttpResponse('my project')
-
-
-
+    return render(request, 'cbsapp/index.html')
 
 def register(request):
     if request.method == 'POST':
-        form = SignupForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -27,7 +24,6 @@ def register(request):
     else:
         form = SignupForm()
     return render(request, 'django_registration/registration_form.html', {'form': form})
-
 
 @login_required
 def profile(request):

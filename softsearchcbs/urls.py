@@ -25,6 +25,8 @@ urlpatterns = [
     path(r'^admin/', admin.site.urls),
     # url(r'', include('softmain.urls')),
     path(r'', include('cbsapp.urls')),
+    re_path(r'', include('softmain.urls')),
+    re_path(r'', include('cbsblog.urls')),
     # re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
     # re_path(r'^accounts/', include('django.contrib.auth.urls')),
     path('register/', user_views.register, name='register'),
