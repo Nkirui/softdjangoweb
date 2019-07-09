@@ -2,12 +2,16 @@ from django import forms
 from . models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude =['user']
+        help_texts = {
+            'company_type': _('e.g transport,mining,insurance'),
+        }
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text='Required')

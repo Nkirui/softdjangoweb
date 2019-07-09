@@ -8,6 +8,8 @@
     <title>softsearch-CBS</title>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
 
 
 
@@ -26,7 +28,7 @@
           <a href="#!" data-scroll="#products" class="nav-item nav-link">Products</a>
           <a href="#offers" data-scroll="#offers" class="nav-item nav-link">Offers</a>
           <a href="#!" data-scroll="#support" class="nav-item nav-link">Support</a>
-          <a href="/user" class="nav-item nav-link">Profile</a>
+          <a href="{%url 'profile' %}" class="nav-item nav-link"><i class="far fa-user"></i>{{user.username}}</a>
         </div>
       </div>
     </nav>

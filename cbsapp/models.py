@@ -11,10 +11,10 @@ class Profile(models.Model):
     company_owner = models.CharField(max_length=50,null= True)
     company_name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
-    email = models.EmailField(null=True)
+    email = models.EmailField()
     contact = models.CharField(max_length=12)
     about_company = models.CharField(max_length=200)
-    company_type = models.CharField(max_length=200,null=True, verbose_name=u'eg Airline')
+    company_type = models.CharField(max_length=200,null=True,)
     linkedin = models.CharField(max_length = 60,null=True, verbose_name=u'link to linkedin profile')
 
     @receiver(post_save, sender=User)
