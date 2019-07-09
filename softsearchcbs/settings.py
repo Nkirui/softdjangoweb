@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'bootstrap3',
-    'cbsapp' ,
+    #'cbsapp' ,
     'tinymce',
     'bootstrap4',
     'crispy_forms',
