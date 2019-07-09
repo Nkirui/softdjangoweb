@@ -711,7 +711,7 @@ font header .navbar-default .navbar-nav li a:hover {
 .navigation .navbar .dropdown-menu {
   border-radius: 0;
   border: none;
-  drop-shadow: 0 0 25px 0 rgba(7, 3, 3, 0.08);
+  drop-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.08);
 }
 
 .navigation .navbar .dropdown-menu a {
@@ -734,15 +734,6 @@ font header .navbar-default .navbar-nav li a:hover {
 .slider {
   background: url("../images/laptop-3174729_1920.jpg") no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: 10% 0%;
-  padding: 200px 0 280px 0;
-  position: relative;
-}
-
-#our-trust{
-    background: url("../images/businessman-3213659_1920.jpg") no-repeat;
-     background-size: cover;
   background-attachment: fixed;
   background-position: 10% 0%;
   padding: 200px 0 280px 0;
