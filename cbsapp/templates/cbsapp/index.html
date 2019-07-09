@@ -71,8 +71,18 @@
     <div id="products" class="section-padding">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <div class="card pos-style" style="width:400px">
+          <div class="col-md-12">
+            <div class="section-header wow fadeInDown" data-wow-delay="0.2s">
+              <p class="line-one"></p>
+              <h2>Our Products</h2>
+              <p class="line-one"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 products-column">
+            <div class="card products-card-style" style="width:350px">
               <img class="card-img-top" src="{% static "images/pos.png"%}" alt="Card image" style="width: 100%">
               <div class="card-body">
                 <h4 class="card-title">Point of Sale System</h4>
@@ -83,7 +93,7 @@
           </div>
 
           <div class="col-md-4">
-            <div class="card pos-style" style="width:400px">
+            <div class="card products-card-style" style="width:350px">
               <img class="card-img-top" src="{% static "images/pos.png"%}" alt="Card image" style="width: 100%">
               <div class="card-body">
                 <h4 class="card-title">Point of Sale System</h4>
@@ -94,7 +104,7 @@
           </div>
 
           <div class="col-md-4">
-            <div class="card pos-style" style="width:400px">
+            <div class="card products-card-style" style="width:350px">
               <img class="card-img-top" src="{% static "images/pos.png"%}" alt="Card image" style="width: 100%">
               <div class="card-body">
                 <h4 class="card-title">Point of Sale System</h4>
@@ -103,7 +113,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -406,6 +416,17 @@
     color: #fff;
     text-transform: uppercase;
   }
+
+  .products-card-style{
+    border-radius: 25px 25px 25px 25px;
+    border: 1px solid;
+    padding: 5px;
+    box-shadow: black;
+  }
+
+  /* .products-column{
+    margin: 2px;
+  } */
 
   .services-area {
     background: whitesmoke;
