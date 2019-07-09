@@ -1,7 +1,10 @@
 {% extends 'base.html' %} 
+{% load bootstrap4 %}
+{% load static %}
 {% block head_title %}{{ post.title }}{% endblock %}
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+
     {{ post.body }}
 {% endblock %}
