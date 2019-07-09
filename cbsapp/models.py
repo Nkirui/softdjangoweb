@@ -8,10 +8,14 @@ from django.db.models.signals import post_save
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='wewe',primary_key=True)
-    company_owner = models.CharField(max_length=50)
+    company_owner = models.CharField(max_length=50,null= True)
+    company_name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
+    email = models.EmailField()
     contact = models.CharField(max_length=12)
     about_company = models.CharField(max_length=200)
+    company_type = models.CharField(max_length=200,null=True,)
+    linkedin = models.CharField(max_length = 60,null=True, verbose_name=u'link to linkedin profile')
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):

@@ -1,4 +1,4 @@
-{%extends "django_registration/base.html"%}
+{% include "navbar.html" %}
 
 {% load bootstrap4 %}
 {% load static%}
@@ -20,7 +20,7 @@
     line-height: 50px;
 }
 body{
-  background-color: #343141;
+  /* background-color: #343141; */
 }
 </style>
 {% include "navbar.html" %}
@@ -50,7 +50,7 @@ body{
             <div class="panel-footer">
                   <h4>
 
-                  Email :  {{user.email }}</br>
+                  Email :  {{p.email }}</br>
                   Cell :  {{ p.contact }}</br>
 
                   </h4>

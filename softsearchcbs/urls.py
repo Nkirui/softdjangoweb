@@ -23,12 +23,9 @@ from cbsapp import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # url(r'', include('softmain.urls')),
     path('', include('cbsapp.urls')),
     re_path(r'', include('softmain.urls')),
     re_path(r'', include('cbsblog.urls')),
-    # re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
-    # re_path(r'^accounts/', include('django.contrib.auth.urls')),
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
     path('profile/update',user_views.update_profile, name='update_profile'),
