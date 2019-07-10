@@ -1,5 +1,6 @@
-{% load static %}
 {% load bootstrap4 %}
+{% load static %}
+
 <header class="navigation"  id="home">
 	<div class="container">
 		<div class="row">
@@ -16,13 +17,38 @@
 							<span class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand" href="index.html">
-								<img src="images/pp.jpeg" style="max-width:250%;max-height:20cr0%;"  alt="Logo">
+								<img src="images/pp.jpeg" style="max-width:250%;max-height:250%;"  alt="Logo">
 							</a>
 						</div>
-						<ul class="nav navbar-nav navbar-right">
 						<!-- Collect the nav links, forms, and other content for toggling -->
-						<li><a href="#">Events</li>		
-                		<li><a href="#">Our Stories</li>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+						
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="ion-ios-arrow-down"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Software Development</a></li>
+                    <li><a href="#">System Integration</a></li>
+                    <li><a href="#">Web Design and Development</a></li>
+                    <li><a href="#">Mobile Applications Development</a></li>
+									</ul>
+								</li>
+							
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="ion-ios-arrow-down"></span></a>
+									<ul class="dropdown-menu">
+                    <li><a href="#">Fleet Management System</a></li>
+										<li><a href="#">Learning Management System</a></li>
+										<li><a href="#">HR Management System</a></li>
+										<li><a href="#">Hospital Management System </a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle scroll-link" data-id="about" aria-expanded="false">About Us</a>
+								
+								</li>
+                <li><a class="scroll-link" href="#" data-id="contact">Contact</a></li>
+                <li><a href="#">Blog</a></li>
 							</ul>
 							</div><!-- /.navbar-collapse -->
 							</div><!-- /.container-fluid -->
@@ -30,4 +56,4 @@
 					</div>
 				</div>
 			</div>
-			</header><!-- header close -->
+			</header><!-- header close --

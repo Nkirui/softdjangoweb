@@ -5,7 +5,9 @@ from . import views
 
 urlpatterns = [
     re_path(r'^blog', views.index, name='index'),
-    re_path(r'^blog/view/(?P<slug>[^\.]+).html', views.view_post, name='view_blog_post')
+    
+   # path('blog/(?p<pk>\w+)/', views.single_blog, name='view_post')
+path('<slug:slug>/', views.BlogDetail.as_view(), name='view_post')
     
 ]
 

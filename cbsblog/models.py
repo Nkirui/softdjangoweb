@@ -16,8 +16,8 @@ class Blog(models.Model):
     def __unicode__(self):
         return '%s' % self.title
 
-    def get_absolute_url(self):
-        return ('view_blog_post', None, {'slug': self.slug})
+    #def get_absolute_url(self):
+        #return ('view_blog_post', None, {'slug': self.slug})
 
 
     def posted_on_pretty(self):

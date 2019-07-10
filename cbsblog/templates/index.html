@@ -3,30 +3,40 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<div class="jumbotron text-center">
-    <h1>Welcome to our Community</h1>
-    <p>We are glad you are here </p> 
+
+<div class="jumbotron text-center" style="background-color:#655e7a; opacity:0.7;">
+    <h1 style="color:whitesmoke;" >Welcome to our Community</h1>
+    <p style="color:whitesmoke;">We are glad you are here </p> 
   </div>
 
+
     <div class = "container">
-            <div class="text-center"><p>latest posts </p></div>
-        <div class="row">
-                <div class = "col-sm-4">
-            <!-- Blog Entries Column -->
+            <div class="text-center"><p>Latest Posts </p></div>
+            <div class="row">
                 {% for post in posts %}
-                <div class = "col-sm-4">
-                    
-                        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-                        <p>{{ post.Author }} | {{ post.posted_on_pretty}} </p>
-                        <img src = "{{ post.image.url }}" height=200 width=200/>
-                        <p >{{post.body|slice:":100" }}</p>
-                        <a href="{{ post.get_absolute_url }}" >Read More &rarr;</a>
-                    </div>
-                </div>
-                {% endfor %}
+                    <div class="col-md-4">
+                   
+                      <div class="card"  style="width: 30rem;">
+                        <div class="card-body">
+                          <h4 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                          <img class="card-img-top" src="{{ post.image.url }}" height=200 width=240 alt="Card image cap"> 
+                          <p class="text-muted">written by {{ post.author }} on  {{ post.posted_on_pretty}}.</p>
+                          <p class="card-text">{{post.body|slice:":100" }}</p>
+
+                          <a href="{ % url 'view_post' blog.slug % }" class="btn btn-default" style="background-color:#655e7a;">Read more &rarr; </a>
+                        </div> 
+                      </div>
+                      </div>{% endfor %}
             </div>
             </div>
         </div>
+                    </div>
+
+                    
+        
+                
+            <!-- Blog Entries Column -->
+               
        
 
 
