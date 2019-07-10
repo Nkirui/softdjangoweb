@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, ProfileForm
 from django.http  import HttpResponse
 from .models import Profile
+from django.contrib.auth import logout
+
 
 # Create your views here.
 @login_required
@@ -65,3 +67,9 @@ def update_profile(request):
     }
 
     return render(request, 'users/update_profile.html', context)
+
+
+
+def logout_view(request):
+    logout(request)
+    return  redirect('home')

@@ -30,9 +30,12 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('profile/update',user_views.update_profile, name='update_profile'),
     path('create_profile/', user_views.create_profile,name='create_profile'),
-    path('logout/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('Login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     # path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-    re_path('logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout'),
+    # path(r'^accounts/',include('registration.backends.simple.urls')),
+    path('logout/', user_views.logout_view,  name='logout'),
+
+
     ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
