@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'softmain',
     'cbsblog',
+    
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
