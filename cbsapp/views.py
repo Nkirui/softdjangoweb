@@ -5,10 +5,6 @@ from .forms import RegistrationForm, UserUpdateForm, ProfileUpdateForm, ProfileF
 from django.http  import HttpResponse
 from .models import Profile
 
-
-
-
-
 # Create your views here.
 @login_required
 def home(request):
@@ -47,11 +43,6 @@ def create_profile(request):
     else:
         form = ProfileForm()
     return render(request, 'users/newProfile.html',{'form':form})
-
-
-
-
-
 
 def update_profile(request):
     if request.method == 'POST':
