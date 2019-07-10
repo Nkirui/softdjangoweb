@@ -22,8 +22,12 @@
   <body>
     {% if user.is_authenticated %}
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-      <span class="navbar-brand" href="/">Softsearch</span>
-      <img src="{% static 'images/menu-button.png' %}" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="/cbs/">
+        <span class="navbar-brand">Softsearch</span>
+      </a>
+      <a href="/cbs/">
+        <img src="{% static 'images/menu-button.png' %}" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      </a>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a href="/cbs/#products" data-scroll="#products" class="nav-item nav-link">Products</a>
