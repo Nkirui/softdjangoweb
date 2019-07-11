@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1>Welcome to our Community</h1>
+    <p>We are glad you are here </p> 
+  </div>
+
+    <div class = "container">
+            <div class="text-center"><p>latest posts </p></div>
+        <div class="row">
+                <div class = "col-sm-4">
+            <!-- Blog Entries Column -->
+                {% for post in posts %}
+                <div class = "col-sm-4">
+                    
+                        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                        <p>{{ post.Author }} | {{ post.posted_on_pretty}} </p>
+                        <img src = "{{ post.image.url }}" height=200 width=200/>
+                        <p >{{post.body|slice:":100" }}</p>
+                        <a href="{{ post.get_absolute_url }}" >Read More &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+       
+
+
+
+{% endblock %}

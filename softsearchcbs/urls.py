@@ -13,16 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.urls import re_path, include
+from django.urls import path, re_path, include
 from django.contrib import admin
-
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
+from cbsapp import views as user_views
 
 urlpatterns = [
-    re_path(r'^admin/', admin.site.urls),
-    # url(r'', include('softmain.urls')),
-    re_path(r'', include('cbsapp.urls')),
-    re_path(r'^accounts/', include('django_registration.backends.activation.urls')),
-    re_path(r'^accounts/', include('django.contrib.auth.urls')),
-    re_path('logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout'),
-]
+    path('admin/', admin.site.urls),
+    path('', include('cbsapp.urls')),
+    re_path(r'', include('softmain.urls')),
+    re_path(r'', include('cbsblog.urls')),
+    path('register/', user_views.register, name='register'),
+    path('profile/', user_views.profile, name='profile'),
+    path('profile/update',user_views.update_profile, name='update_profile'),
+    path('create_profile/', user_views.create_profile,name='create_profile'),
+    path('Login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('logout/', user_views.logout_view,  name='logout'),
+
+
+    ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
