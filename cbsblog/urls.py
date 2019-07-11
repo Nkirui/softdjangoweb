@@ -1,14 +1,9 @@
-from django.urls import path, re_path, reverse
-from django.conf import settings
-from django.conf.urls.static import static
+
 from . import views
+from django.urls import path
 
 urlpatterns = [
-    re_path(r'^blog', views.index, name='index'),
-    
-   # path('blog/(?p<pk>\w+)/', views.single_blog, name='view_post')
-path('<slug:slug>/', views.BlogDetail.as_view(), name='view_post')
-    
-]
-
+    path('blog/', views.PostList.as_view(), name='index'),
+    path('<slug:slug>', views.PostDetail.as_view(), name='post_detail')
+] 
 
