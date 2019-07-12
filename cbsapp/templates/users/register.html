@@ -1,44 +1,110 @@
-{%extends "registration/base.html"%} {% load bootstrap4 %}
-{% block content %}
-<style>
-body{
-  background-color: #343141;
-}
-</style>
-<div class="container">
-  <div class="row">
-    <!-- Empty div -->
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+<!DOCTYPE html>
+<html>
+  <title>CBS Sign up from</title>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+      html, body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      }
+      input[type=text], input[type=password],input[type=email] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      /* border: 1px solid #ccc; */
+      box-sizing: inherit;
+      border: 0;
+      border-bottom: 1px solid #ccc;
+      outline: 0;
+      }
+      .icon {
+      font-size: 110px;
+      display: flex;
+      justify-content: center;
+      color: #4286f4;
+      }
+      button {
+      background-color: #4286f4;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grab;
+      width: 48%;
+      }
+      h1 {
+      text-align:center;
+      fone-size:18;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: center;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post" class="form">
+    {% csrf_token %}
+
+
+      <h1>SIGN UP</h1>
+      <div class="icon">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <div class="formcontainer">
       {% if form.errors %}
         <p> Some Information Might be Incorrect </p>
       {% endif %}
-      <div class="panel panel-default">
+      <div class="container">
 
-        <div class="panel-heading">
-          <h3 class="text-center">Sign Up</h3>
-        </div>
-        <div class="panel-body">
 
-          <form  action="/register/" method="post" style="color:#0FA0CE;">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
-            </div>
+         {% for field in form.visible_fields %}
 
-            <input type="hidden" name="next" value="{{next}}">
+          <label  {{ field.label_tag }}<span>*</span></label>
+          {{field}}</br>
+          {%endfor%}
 
-          </form>
-
-        </div>
-
-      </div>
-
-    </div>
-    <!-- empty div -->
-    <div class="col-md-3"></div>
-  </div>
 </div>
 
-{% endblock %}
+
+
+
+
+
+      </div>
+       <button type="submit" class="btn btn-success">Join Us</button>
+      <div class="container" style="background-color: #eee">
+        <label style="padding-left: 15px">
+        <input type="checkbox"  checked="checked" name="remember"> Remember me
+        </label>
+        <span class="psw"><a href="{%url 'login'%}">already have account?</a></span>
+      </div>
+    </form>
+    </body>
+    </html>

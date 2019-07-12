@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'softmain',
     'cbsblog',
+    'django.contrib.sites',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -143,3 +144,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+
+SITE_ID=1
