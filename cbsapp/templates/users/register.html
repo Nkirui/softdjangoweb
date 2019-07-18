@@ -87,7 +87,13 @@
          {% for field in form.visible_fields %}
 
           <label  {{ field.label_tag }}<span>*</span></label>
-          {{field}}</br>
+          {{field}}
+          {% if field.help_text %}
+          <small style="display: none">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}</br>
           {%endfor%}
 
 </div>

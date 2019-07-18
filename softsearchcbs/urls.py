@@ -23,6 +23,7 @@ from cbsapp import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('^', include('django.contrib.auth.urls')),
     path('', include('cbsapp.urls')),
     re_path(r'', include('softmain.urls')),
     re_path(r'', include('cbsblog.urls')),

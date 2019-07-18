@@ -59,8 +59,10 @@
     </style>
   </head>
   <body>
+  {% load bootstrap3 %}
     <form method="post">
     {%csrf_token%}
+    {% bootstrap_messages %}
       <h1>Login T CBS</h1>
       <div class="formcontainer">
       <hr/>
@@ -68,6 +70,12 @@
       {% for field in form.visible_fields %}
         <label for="uname"><strong>{{field.label_tag}}</strong></label>
         {{field}}
+        {% if field.help_text %}
+          <small style="display: none">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
 
       </div>
       {%endfor%}
