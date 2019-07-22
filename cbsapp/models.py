@@ -8,7 +8,7 @@ from django.db.models.signals import post_save
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='wewe',primary_key=True)
-    company_name = models.CharField(max_length=50)
+    company_name = models.CharField(max_length=40)
     email = models.EmailField()
     contact = models.CharField(max_length=12)
     location = models.CharField(max_length=50,blank=True)
