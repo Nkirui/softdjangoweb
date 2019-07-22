@@ -8,7 +8,7 @@ from django.contrib.auth import logout
 
 
 # Create your views here.
-@login_required
+# @login_required
 def hom(request):
     return render(request, 'cbsapp/index.html')
 
