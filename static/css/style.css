@@ -789,7 +789,7 @@ font header .navbar-default .navbar-nav li a:hover {
 }
 
 .service .service-item {
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 }
 
 .service .service-item i {
@@ -2829,3 +2829,19 @@ border: 1px solid #00d2be;
 }
 /*-- //map --*/
 /*# sourceMappingURL=maps/style.css.map */
+
+.zom {
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+.zom i{
+  display: none;
+}
+
+.zom:hover i{
+  display: block;
+}
+
+.zom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

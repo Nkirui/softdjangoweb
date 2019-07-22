@@ -87,7 +87,6 @@
 	opacity:0.9;
 }
 .zoom:before {
-	content: "\f00e";
     font-family: FontAwesome;
     color: rgba(255, 255, 255, 0.5);
     font-size: 70px;
