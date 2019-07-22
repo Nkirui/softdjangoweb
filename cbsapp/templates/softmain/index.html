@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 
 <!-- Slider Start -->
 <section class="slider">
@@ -49,7 +50,7 @@ We're also experienced business professionals who'll understand your business re
       </div><!-- .col-md-7 close -->
       <div class="col-md-5 col-sm-12">
         <div class="block">
-          <img src="{% static './images/workplace-2303853_1920.jpg' %}" alt="Img">
+          <img src="{% static './images/workplace.jpg' %}" alt="Img">
         </div>
       </div><!-- .col-md-5 close -->
     </div>
@@ -61,7 +62,7 @@ We're also experienced business professionals who'll understand your business re
     <div class="row">
       <div class="col-md-6 col-md-offset-6">
         <h2 class="section-subtitle">WE BELIEVE IN GREAT IDEAS</h2>
-        <p>Softsearch core philosophy revolves around building the right solution that works for your business.
+        <p id="p-ideas">Softsearch core philosophy revolves around building the right solution that works for your business.
           It is important to us, that our clients get the best user experience ever possible.
           Our aim is for each of our clients to see Softsearch as an extension of their own organisation
           and to regard contracting projects to Softsearch as an investment in their company's future,
@@ -116,6 +117,63 @@ We're also experienced business professionals who'll understand your business re
     </div>
   </div>
 </section>
+<section class="portfolio" id="portfolio" style="padding-bottom:100px;">
+    <div class="section-title">
+      <h2 style="text-align: center">Our Products</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/CRM.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/CRM.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/ERP.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/ERP.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/BULK.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/BULK.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/HRM.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/HRM.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/LMS.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/LMS.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/PMS.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/PMS.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/PROC.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/PROC.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text zom">
+        <img src="{% static 'images/POS.jpg' %}" alt="" />
+        <a class="fancybox" rel="ligthbox" href="{% static 'images/POS.jpg' %}">
+          <div class="zoom"><i class="fas fa-search-plus fa-3x"></i></div>
+        </a>
+      </div>
+  </div>
+</section>
 <!-- Call to action Start -->
 
 <section class="call-to-action bg-1 section-sm overly">
@@ -123,8 +181,8 @@ We're also experienced business professionals who'll understand your business re
     <div class="row">
       <div class="col-md-12">
         <div class="block">
-          <h2>We design delightful digital experiences.</h2>
-          <p>Judge for yourself The work and results <br> we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+          <h2>We Design Delightful Digital Experiences.</h2>
+          <p>Judge for yourself the work and results <br> we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
 
         </div>
       </div>
@@ -138,7 +196,6 @@ We're also experienced business professionals who'll understand your business re
     <div class="row">
       <div class="section-title">
         <h2>What we believe in</h2>
-
       </div>
     </div>
     <div class="row">
@@ -177,8 +234,11 @@ We're also experienced business professionals who'll understand your business re
 
 
 <!-- contact -->
-<div class="contact py-5" id="contact" style="padding-bottom: 100px;">
-    <div class="container py-3">
+<div class="contact py-5">
+    <div class="middle-heading pb-5 text-center" style="padding: 50px">
+        <h1>Connect With Us </h1>
+      </div>
+    <!-- <div class="container py-3">
     <div class="middle-heading pb-5 text-center">
         <h3>Connect With Us </h3>
       </div>
@@ -243,7 +303,88 @@ We're also experienced business professionals who'll understand your business re
             <button type="submit" class="btn btn-primary form-button">Submit</button>
             </div>
       </form>
-    </div>
+    </div> -->
+    <section class="map_area" id="contact">
+        <div class="contact_info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact_form_left">
+                            <div class="row">
+                                <form class="comment_form_inner" action="." method="post" id="contactForm">
+                                    {% csrf_token %}
+                                    {% include 'softmain/form_template.html' %}
+                                    <div class="form-group col-md-12">
+                                        <button class="btn btn-default submit_btn" type="submit">Send</button>
+                                    </div>
+                                </form>
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div>
+                                    <p style="color: green;">{{message}}</p>
+                                </div>
+                                {% endfor %}
+                                <!-- <div id="error">
+                                    <p>Sorry! Message not sent. Something went wrong!!</p>
+                                </div> -->
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact_details">
+                            <div class="media">
+                                <div class="media-left">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Our Location</h4>
+                                    <h5>Nairobi,Parklands,Diamond Plaza One,Second Floor</h5>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Call Us On</h4>
+                                    <h5>+254712048306</h5>
+                                    <h5>+254717057939</h5>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Send Your Message</h4>
+                                    <h5>info@softsearch.co.ke</h5>
+                                    <h5>sales@softsearch.co.ke</h5>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4>Our Working Hours</h4>
+                                    <h5>Mon-Fri 7.30AM to 6.30PM</h5>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="#"><i class="fab mr-2 fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab mr-2 fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab mr-2 fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fab mr-2 fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fab mr-2 fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab mr-2 fa-skype"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 <!-- //contact -->
 
@@ -259,7 +400,7 @@ We're also experienced business professionals who'll understand your business re
 <footer class="py-5">
   <div class="container">
     <div class="footer-logo text-center">
-      <a class="navbar-brand" href="#"><i class="fas fa-bicycle"></i>Softsearch</a>
+      <a class="navbar-brand" href="#">Softsearch</a>
     </div>
     <div class="copyright text-center p-3">
       <p>© 2019 Softsearch. All Rights Reserved | Design by <a href="#"> Softsearch</a> </p>
