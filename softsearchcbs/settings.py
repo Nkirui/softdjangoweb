@@ -148,9 +148,6 @@ LOGIN_URL = 'login'
 
 SITE_ID=1
 
-<<<<<<< HEAD
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-=======
 # sending email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
@@ -159,4 +156,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'softsearchlimited@gmail.com'
 EMAIL_HOST_PASSWORD = 'Bashir_@12'
->>>>>>> 3f9992211f306b750961f6c1d338eecd6391ad2c
