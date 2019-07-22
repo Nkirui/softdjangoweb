@@ -264,6 +264,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-style: italic;
   color: #666;
   font-family: "Volkhov", serif;
+  font-size: 18px;
 }
 
 .section-subtitle {
@@ -732,7 +733,7 @@ font header .navbar-default .navbar-nav li a:hover {
 }
 
 .slider {
-  background: url("../images/laptop-3174729_1920.jpg") no-repeat;
+  background: url("../images/landing.png") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 10% 0%;
@@ -773,6 +774,7 @@ font header .navbar-default .navbar-nav li a:hover {
 
 .call-to-action p {
   color: #fff;
+  font-size: 20px;
 }
 
 .call-to-action .btn-main, .call-to-action .btn-transparent, .call-to-action .btn-small {
@@ -871,6 +873,13 @@ font header .navbar-default .navbar-nav li a:hover {
 .feature h2 {
   margin-bottom: 30px;
 }
+
+#p-ideas{
+  color:#0e0d0d;
+  font-size: 20px;
+
+}
+
 
 .feature p {
   color: #8d8f92;

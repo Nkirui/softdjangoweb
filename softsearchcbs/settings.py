@@ -146,3 +146,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
 SITE_ID=1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
