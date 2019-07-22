@@ -8,8 +8,7 @@ def index(request):
     })
 
 
-def view_post(request, slug):   
+def view_post(request, slug):
     return render_to_response('view_post.html', {
         'post': get_object_or_404(Blog, slug=slug)
     })
-

@@ -8,8 +8,7 @@ from django.contrib.auth import logout
 
 
 # Create your views here.
-@login_required
-def home(request):
+def hom(request):
     return render(request, 'cbsapp/index.html')
 
 def register(request):
@@ -22,7 +21,7 @@ def register(request):
             return redirect('create_profile')
     else:
         form = RegistrationForm()
-    return render(request, 'django_registration/registration_form.html', {'form': form})
+    return render(request, 'users/register.html', {'form': form})
 
 @login_required
 def profile(request):
@@ -40,7 +39,7 @@ def create_profile(request):
             profile = form.save(commit=False)
             profile.user=current_user
             profile.save()
-        return redirect('profile')
+        return redirect('hom')
 
     else:
         form = ProfileForm()

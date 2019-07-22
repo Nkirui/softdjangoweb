@@ -7,5 +7,5 @@ from django_registration.backends.activation.views import ActivationView, Regist
 from . import forms, views
 
 urlpatterns = [
-    re_path(r'^cbs/$', views.home, name='home'),
+    re_path(r'^cbs/$', views.hom, name='hom'),
 ]
