@@ -10,7 +10,7 @@ def home(request):
             sender = email_form.cleaned_data['email']
             subject = email_form.cleaned_data['subject']
             message = email_form.cleaned_data['message']
-            send_mail(subject, message, sender, ['receiver1@example.com'])
+            send_mail(subject, message, sender, ['softsearchlimited@gmail.com'])
             email_form.save()
             messages.success(request, 'Sent successfully')
     else:
