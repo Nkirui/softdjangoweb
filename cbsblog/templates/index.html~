@@ -12,11 +12,11 @@
   <div class="row">
                     {% for post in post_list %}
                     <div class="col-md-4">
-                      
-                    <img class="card-img-top" src="{{ post.image.url }}"  style="width: 18rem; height:200px; " alt="Card image cap">  
+                      <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">  
                   <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">written by {{ post.author }} on  {{ post.created_on}} </p>
+                    <p class="card-text text-muted h6">written by {{ post.uuthor }} on  {{ post.created_on}} </p>
 
                     <p class="card-text">{{post.content|slice:":200" }}</p>
                     <a href="{% url 'post_detail' post.slug  %}" class="btn btn-default" style="color:#655e7a;">Read More &rarr;</a>
