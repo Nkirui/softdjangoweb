@@ -29,7 +29,12 @@
             <a href="/cbs/#products" data-scroll="#products" class="nav-item nav-link">Products</a>
             <a href="/cbs/#offers" data-scroll="#offers" class="nav-item nav-link">Offers</a>
             <a href="/cbs/#support" data-scroll="#support" class="nav-item nav-link">Support</a>
-            <a href="{%url 'profile' %}" class="nav-item nav-link"><i class="far fa-user"></i>{{user.username}}</a>
+
+            {% if user.is_authenticated %}
+              <a href="{%url 'profile' %}" class="nav-item nav-link"><i class="far fa-user"></i>{{user.username}}</a>
+            {% else %}
+              <a href="{% url 'login' %}" class="nav-item nav-link"><i class="far fa-user"></i>login/signup</a>
+            {%endif%}
           </div>
         </div>
       </nav>

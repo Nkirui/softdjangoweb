@@ -9,7 +9,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         ordering = ['-created_on']
 
@@ -17,8 +17,6 @@ class Post(models.Model):
         return self.title
 
     def created_on_pretty(self):
-            return self.created_on.strftime('%b %e, %Y')  
+            return self.created_on.strftime('%b %e, %Y')
 
-#it will return you the date in this format – Sep 26, 2018, which looks more user friendly 
-    
-
+#it will return you the date in this format – Sep 26, 2018, which looks more user friendly
