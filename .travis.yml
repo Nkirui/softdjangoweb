@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t  nkirui2030/softdjangoweb .
+  
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "softsearchdjango"
+  env: "Softsearchdjango-env"
+  bucket_name: "elasticbeanstalk-us-west-1-736702276294"
+  bucket_path: "softsearchdjango"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
+  
+
