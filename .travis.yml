@@ -1,4 +1,4 @@
-language: python
+language: python:3.5
 sudo: required
 services:
   - docker
