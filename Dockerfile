@@ -2,6 +2,10 @@
 # FROM directive instructing base image to build upon
 FROM python:3.5
 MAINTAINER nathankirui5@gmail.com
+# Set environment varibles
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 RUN mkdir /mdata
 WORKDIR /mdata
 COPY . /mdata
@@ -11,5 +15,7 @@ EXPOSE 8000
 
 # CMD specifcies the command to execute to start the server running.
 
-ENTRYPOINT ["./start.sh"]
+COPY start.sh /start.sh
+
+CMD ["./start.sh"]
 
