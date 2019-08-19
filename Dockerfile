@@ -12,3 +12,4 @@ EXPOSE 8000
 # CMD specifcies the command to execute to start the server running.
 
 ENTRYPOINT ["./start.sh"]
+
