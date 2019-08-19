@@ -7,7 +7,7 @@ services:
 before_install:
   - docker build -t  nkirui2030/softdjangoweb .
 script:
-  - docker run -p 8000:8000 nkirui2030/softdjangoweb
+  - docker run -p 8000:8000 nkirui2030/softdjangoweb test --coverage
 
 deploy:
   provider: elasticbeanstalk
