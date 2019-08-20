@@ -15,7 +15,7 @@ EXPOSE 8000
 
 # CMD specifcies the command to execute to start the server running.
 
-COPY start.sh /start.sh
+# COPY start.sh /start.sh
 
-CMD ["./start.sh"]
+CMD ["python", "./manage.py", "runserver", "0.0.0.0:8000"]
 
