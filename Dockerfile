@@ -13,9 +13,16 @@ RUN pip install -r requirements.txt
 # EXPOSE port 8000 to allow communication to/from server
 EXPOSE 8000
 
-# CMD specifcies the command to execute to start the server running.
+# build app
+RUN pip install -r requirements.txt
+RUN python manage.py makemigrations --noinput
+RUN python manage.py migrate --noinput
+RUN python manage.py test --noinput
+RUN python manage.py createsuperuser --username nathan --password 12345 --noinput --email 'nathankirui5@gmail.com'
 
-CMD ["python", "./manage.py","migrate","runserver", "0.0.0.0:8000"]
-CMD ["./start.sh"]
+# echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'pass')" | python manage.py shell
+
+
+CMD python manage.py runserver 0.0.0.0:8000
 
 
