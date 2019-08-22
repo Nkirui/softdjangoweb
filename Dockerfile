@@ -20,7 +20,7 @@ RUN python manage.py migrate --noinput
 RUN python manage.py test --noinput
 # RUN python manage.py createsuperuser --username nathan --password 12345 --noinput --email 'nathankirui5@gmail.com'
 
-# RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'nathankirui5@gmail.com', 'pass')" | python manage.py shell
+RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'nathankirui5@gmail.com', 'adminpass12345')" | python manage.py shell
 
 
 CMD python manage.py runserver 0.0.0.0:8000
