@@ -17,11 +17,11 @@ after_success:
 deploy:
   skip_cleanup: true
   provider: elasticbeanstalk
-  region: "us-west-1"
-  app: "softsearchdjango"
-  env: "Softsearchdjango-env"
-  bucket_name: "elasticbeanstalk-us-west-1-736702276294"
-  bucket_path: "softsearchdjango"
+  region: "us-west-2"
+  app: "softsearchapp"
+  env: "softsearchapp-env"
+  bucket_name: "elasticbeanstalk-us-west-2-736702276294"
+  bucket_path: "django-softsearch"
   skip_cleanup: true
 
   on:
