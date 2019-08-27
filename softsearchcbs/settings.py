@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'sendemail.apps.SendemailConfig',
     'bootstrap3',
     'cbsapp' ,
     'tinymce',
