@@ -7,9 +7,9 @@ MAINTAINER nathankirui5@gmail.com
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+
 RUN apk add --no-cache python3 libffi-dev libxml2-dev libxslt-dev jpeg jpeg-dev libpq supervisor \
  && apk add --no-cache gcc python3-dev musl-dev \
- && apk add --no-cache --repository http://dl-2.alpinelinux.org/alpine/v3.8/main postgresql-dev=10.5-r0 \
  && python3 -m ensurepip && rm -r /usr/lib/python*/ensurepip \
  && apk add --no-cache --virtual .pynacl_deps build-base python3-dev libffi-dev \
  && pip3 install --upgrade pip setuptools \
