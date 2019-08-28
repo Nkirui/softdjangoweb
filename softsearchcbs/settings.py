@@ -25,7 +25,7 @@ SECRET_KEY = '*k79&_8ix=@zoh$%565u6^b&hw+)517_68ffjqqv_z^owtjgz&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -171,5 +171,6 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'softsearchlimited@gmail.com'
-EMAIL_HOST_PASSWORD = 'Bashir_@12'
+EMAIL_HOST_USER =  'softsearchlimited@gmail.com' # os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = 'Bashir_@12' #os.environ.get('EMAIL_HOST_PASSWORD')
+
