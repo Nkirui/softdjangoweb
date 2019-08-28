@@ -3,9 +3,10 @@
 # FROM python:3.5
 FROM python:3.7-alpine
 MAINTAINER nathankirui5@gmail.com
-# Set environment varibles
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV C_FORCE_ROOT true
+
 RUN mkdir /mdata
 WORKDIR /mdata
 COPY . /mdata
