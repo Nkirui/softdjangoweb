@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*k79&_8ix=@zoh$%565u6^b&hw+)517_68ffjqqv_z^owtjgz&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -176,12 +176,15 @@ SITE_ID=1
 
 # sending sendgrid
 
-API_CODE="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"
+#API_CODE="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"
 
-SENDGRID_API_KEY = API_CODE  # os.getenv('SENDGRID_API_KEY')
+#SENDGRID_API_KEY = API_CODE  # os.getenv('SENDGRID_API_KEY')
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+#EMAIL_HOST_USER = 'apikey'
+#EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_HOST_USER = 'nathankirui5@gmail.com'
+EMAIL_HOST_PASSWORD = 'monkey567'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'nathankirui5@gmail.com'
