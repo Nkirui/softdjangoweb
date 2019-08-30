@@ -135,16 +135,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
-
-
 # STATIC_URL = '/static/'
-# # # STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
+
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # STATIC_URL = '/static/'
@@ -169,8 +172,8 @@ SITE_ID=1
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER =  'nathankirui5@gmail.com' # os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = 'N@kirui2015' #os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER =  '$EMAIL_HOST_USER'  # os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = '$EMAIL_HOST_PASSWORD' #os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
