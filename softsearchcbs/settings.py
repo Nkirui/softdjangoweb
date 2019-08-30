@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import smtplib
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -168,14 +169,21 @@ LOGIN_URL = 'login'
 
 SITE_ID=1
 
+
 # sending email
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER =  '$EMAIL_HOST_USER'  # os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = '$EMAIL_HOST_PASSWORD' #os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+smtpserver = smtplib.SMTP("smtp.gmail.com", 587)
+smtpserver.ehlo()
+smtpserver.starttls()
+smtpserver.ehlo()
+smtpserver.login('nathankirui5@gmail.com', 'N@kirui2015')
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER =  '$EMAIL_HOST_USER'  # os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = '$EMAIL_HOST_PASSWORD' #os.environ.get('EMAIL_HOST_PASSWORD')
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
 
 # sending sendgrid
 
