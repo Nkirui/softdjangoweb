@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+from .config import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -89,12 +89,28 @@ WSGI_APPLICATION = 'softsearchcbs.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+if 'RDS_DB_NAME' in os.environ:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 
 # Password validation
@@ -123,7 +139,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -135,15 +153,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
-
-
-
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = 'static'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -168,26 +186,13 @@ LOGIN_URL = 'login'
 
 SITE_ID=1
 
+
 # sending email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER =  '$EMAIL_HOST_USER'  # os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = '$EMAIL_HOST_PASSWORD' #os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+EMAIL_HOST_USER =  EMAIL_HOST_USER 
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD 
+EMAIL_PORT = EMAIL_PORT
+EMAIL_USE_SSL = EMAIL_USE_SSL
 
-# sending sendgrid
-
-#API_CODE="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"
-
-#SENDGRID_API_KEY = API_CODE  # os.getenv('SENDGRID_API_KEY')
-
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# #EMAIL_HOST_USER = 'apikey'
-# #EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-# EMAIL_HOST_USER = 'nathankirui5@gmail.com'
-# EMAIL_HOST_PASSWORD = 'monkey567'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = 'nathankirui5@gmail.com'
