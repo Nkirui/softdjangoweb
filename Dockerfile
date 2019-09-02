@@ -20,7 +20,9 @@ EXPOSE 8000
 
 # build app
 RUN python manage.py makemigrations --noinput
-RUN python manage.py migrate --noinput
+RUN python manage.py migrate sites zero --fake --noinput
+RUN python manage.py migrate sites --noinput
+
 # RUN python manage.py collectstatic --noinput 
 RUN python manage.py test --noinput
 
