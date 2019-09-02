@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 from .config import *
+from decouple import config
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,11 +22,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*k79&_8ix=@zoh$%565u6^b&hw+)517_68ffjqqv_z^owtjgz&'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config('SECRET_KEY')
 
+# set debug to false
+DEBUG = config('DEBUG', cast=bool)
+
+# allowed host
 ALLOWED_HOSTS = ["*"]
 
 
@@ -191,10 +196,10 @@ SITE_ID=1
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER =  EMAIL_HOST_USER 
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD 
-EMAIL_PORT = EMAIL_PORT
-EMAIL_USE_SSL = EMAIL_USE_SSL
+EMAIL_HOST_USER =  config(EMAIL_HOST_USER)
+EMAIL_HOST_PASSWORD = config(EMAIL_HOST_PASSWORD)
+EMAIL_PORT = config(EMAIL_PORT,cast=int)
+EMAIL_USE_SSL = config(EMAIL_USE_SSL)
 
 
 # site id
