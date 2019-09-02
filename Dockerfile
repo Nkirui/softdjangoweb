@@ -21,7 +21,7 @@ RUN apk update \
     && apk add postgresql-dev \
     && pip install psycopg2 \
     && apk del build-deps
-    
+
 RUN pip install -r requirements.txt
 # EXPOSE port 8000 to allow communication to/from server
 EXPOSE 8000
@@ -29,6 +29,8 @@ EXPOSE 8000
 # build app
 RUN python manage.py makemigrations --noinput
 RUN python manage.py migrate --noinput
+python manage.py migrate sessions --noinput
+
 # RUN python manage.py collectstatic --noinput 
 RUN python manage.py test --noinput
 
