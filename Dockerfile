@@ -29,7 +29,7 @@ EXPOSE 8000
 # build app
 RUN python manage.py makemigrations --noinput
 RUN python manage.py migrate --noinput
-python manage.py migrate sessions --noinput
+RUN python manage.py migrate sessions --noinput
 
 # RUN python manage.py collectstatic --noinput 
 RUN python manage.py test --noinput
