@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY','mykey1234')
+SECRET_KEY = config('SECRET_KEY', default='mysecret12345100%')
 
 
 # set debug to false
@@ -198,7 +198,7 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER =  config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = config('EMAIL_PORT',cast=int)
+EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
 EMAIL_USE_SSL = config('EMAIL_USE_SSL')
 
 
