@@ -7,7 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.11/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.11/ref/settings/
+https://docs.djangoproject.com/en/1.11/ref/settings/                
 """
 # coding: utf-8
 import os
@@ -23,8 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = '*k79&_8ix=@zoh$%565u6^b&hw+)517_68ffjqqv_z^owtjgz&'
+SECRET_KEY = config('SECRET_KEY')
 
 
 # set debug to false
@@ -197,10 +196,10 @@ SITE_ID=1
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER =  config(EMAIL_HOST_USER)
-EMAIL_HOST_PASSWORD = config(EMAIL_HOST_PASSWORD)
-EMAIL_PORT = config(EMAIL_PORT,cast=int)
-EMAIL_USE_SSL = config(EMAIL_USE_SSL)
+EMAIL_HOST_USER =  config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT',cast=int)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL')
 
 
 # site id
