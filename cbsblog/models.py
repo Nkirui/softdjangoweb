@@ -1,12 +1,13 @@
 from django.db import models
 # from django.contrib.auth.models import User
 
+fs = FileSystemStorage(location='/media/photos')
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.CharField (max_length=200)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(fs,)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
