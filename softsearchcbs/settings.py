@@ -183,7 +183,7 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER =  config('EMAIL_HOST_USER',default=None)
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default=None)
-EMAIL_PORT = config('EMAIL_PORT', default=None,cast=int)
+EMAIL_PORT = config('EMAIL_PORT', default=465,cast=int)
 EMAIL_USE_SSL = config('EMAIL_USE_SSL',default=True)
 
 # media files
