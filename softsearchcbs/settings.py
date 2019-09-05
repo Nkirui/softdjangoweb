@@ -182,10 +182,10 @@ SITE_ID=1
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER =  config('EMAIL_HOST_USER',default='')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default='')
-EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
-EMAIL_USE_SSL = config('EMAIL_USE_SSL',default='')
+EMAIL_HOST_USER =  config('EMAIL_HOST_USER',default='softsearchlimited@gmail.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default='Bashir_@12')
+EMAIL_PORT = config('EMAIL_PORT', default=465, cast=int)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL',default=True)
 
 
 # site id
