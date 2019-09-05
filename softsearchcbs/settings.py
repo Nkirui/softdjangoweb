@@ -181,10 +181,10 @@ SITE_ID=1
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER =  config('EMAIL_HOST_USER',default='softsearchlimited@gmail.com')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default='Bashir_@12')
-EMAIL_PORT = config('EMAIL_PORT', default=465, cast=int)
-EMAIL_USE_SSL = config('EMAIL_USE_SSL',default=True)
+EMAIL_HOST_USER =  config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT',cast=int)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL')
 
 # media files
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID',default=None)
