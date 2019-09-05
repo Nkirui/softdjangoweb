@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='mysecret12345100%')
 
 
 # set debug to false
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 # allowed host
 ALLOWED_HOSTS = ["*"]
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'softmain',
     'cbsblog',
     'django.contrib.sites',
+    'storages'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -150,6 +151,7 @@ STATICFILES_DIRS = [
 ]
 
 
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # STATIC_URL = '/static/'
 # STATIC_ROOT = 'static'
@@ -186,6 +188,14 @@ EMAIL_HOST_USER =  config('EMAIL_HOST_USER',default='softsearchlimited@gmail.com
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default='Bashir_@12')
 EMAIL_PORT = config('EMAIL_PORT', default=465, cast=int)
 EMAIL_USE_SSL = config('EMAIL_USE_SSL',default=True)
+
+# media files
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_FILE_OVERWRITE = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_DEFAULT_ACL = None
 
 
 # site id
