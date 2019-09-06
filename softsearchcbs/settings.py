@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='mysecret12345100%')
 
 
 # set debug to false
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # allowed host
 ALLOWED_HOSTS = ["*"]
@@ -75,9 +75,7 @@ ROOT_URLCONF = 'softsearchcbs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        #'DIRS': [os.path.join(BASE_DIR, 'templates')],
-
+        'DIRS': [BASE_DIR + '/templates/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,25 +144,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 
-# STATIC_URL = '/static/'
-# STATIC_ROOT = 'static'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# STATIC_URL = '/static/'
-# if DEBUG:
-#    STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, '/home/boyo/projects/djangosoft/static'),
-#    ]
-# else:
-#    STATIC_ROOT = os.path.join(BASE_DIR,'/home/boyo/projects/djangosoft/static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

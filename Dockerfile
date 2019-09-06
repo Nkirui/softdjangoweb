@@ -27,13 +27,13 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # build app
-RUN chmod +x runscript.sh
+# RUN chmod +x runscript.sh
 
 # RUN python manage.py makemigrations --noinput
 RUN python manage.py migrate sites --noinput
 RUN python manage.py migrate --noinput
 
-# RUN python manage.py collectstatic --noinput 
+RUN python manage.py collectstatic --noinput 
 RUN python manage.py test --noinput
 
 # Run command to create supperuser 
