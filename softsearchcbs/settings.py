@@ -94,6 +94,215 @@ WSGI_APPLICATION = 'softsearchcbs.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 # RDS variables come automatically from AWS RDS
+
+
+BLOG
+May 23rd, 2017
+Tutorial: Deploying Python 3, Django, PostgreSQL to AWS Elastic Beanstalk
+By Jameson Ricks
+We all know Amazon Web Services frequently changes and updates their products and services. This post was originally written when all of the tutorials online for deploying Django to Elastic Beanstalk with PostgreSQL were outdated (using Python 2.7 and Django 1.7). There are a few things that are different when deploying Python 3 to EB that weren’t widely known at the time. This tutorial is designed to help you easily deploy your web app. I’ve borrowed a few general ideas from here for this tutorial. As always, you can always check out the official documentation for the most up to date information.
+
+I did this on a Mac running macOS Sierra 10.12.5. It should be the same on Linux. Sorry Windows users, you’ll have to adapt this tutorial to your needs, but I imagine it’d be very similar once you get your Python environment set up. In this tutorial, I expect that you already have an Amazon Web Services account and are familiar with its basic functionality.
+
+The local environment I used:
+
+Python 3.6.1
+Django 1.11.1
+1. Preliminary Setup
+This covers basics of creating a virtual environment and creating a Django app. If you have already done this, you can skip this part.
+
+I used a Python 3.6 virtualenv. You can install this using pip3 install virtualenv. You can then create and activate a Python 3 virtual environment using:
+
+# Creates the environment
+virtualenv -p python3 myenv
+# Activates the environment
+. myenv/bin/activate
+
+Note: To deactivate your virtualenv just type deactivate at your command prompt.
+
+Install your dependencies with pip. We’ll definitely need psycopg2. If you have any other pip dependencies. Install them now. We’ll also create a new homepage app.
+
+pip install psycopg2 django mako
+
+
+Create your Django site and add an app:
+
+django-admin.py startproject my_eb_site
+cd my_eb_site
+python manage.py startapp homepage
+
+
+Add the homepage app to the list of INSTALLED_APPS in your settings.py file. Migrate your database and run the server to make sure everything is working.
+
+python manage.py migrate
+python manage.py runserver
+2. Using Git
+Git is required to deploy your web app to Elastic Beanstalk. If you haven’t already created a Git repository in your root Django project folder, do so with the following commands (make sure that you are in your project’s root directory!):
+
+git init
+git add .
+git commit -m "Initial commit message"
+
+
+Elastic Beanstalk will upload your latest commit to the instance. Make sure you always commit your changes before deploying your your web app to Elastic Beanstalk. Otherwise you’ll deploy old versions of your web app to the server.
+
+3. Getting ready for Elastic Beanstalk
+You’ll need to install one more thing with pip in order to deploy your site to Elastic Beanstalk:
+
+pip install awsebcli
+
+
+This will install awsebcli and a host of dependencies. The package awsebcli, or EB Command Line Interface (CLI), is a tool that helps you deploy and manage your AWS Elastic Beanstalk applications and environments. It also provides integration with Git. You can view more info here. This package is currently at version 3.10.1 as of this writing.
+
+You can check to make sure it’s working by running eb --version. You should get:
+
+EB CLI 3.10.1 (Python 3.6.1)
+
+
+Now we’re ready to proceed!
+
+4. Setting up your Elastic Beanstalk Environment
+Now that we’ve got the EB CLI installed, we can proceed. Let’s start by initializing our EB environment with the following command:
+
+eb init
+
+
+Note: If you’ve already setup your AWS CLI and have a specific profile to use, you can use it with the --profile flag.
+
+For example, if I wanted to use a profile called my-eb-user I would do the following:
+
+eb init --profile my-eb-user
+
+
+This will bring up a menu enabling you to select which AWS data center you want your web app to be stored in.
+
+
+Select a default region
+1) us-east-1 : US East (N. Virginia)
+2) us-west-1 : US West (N. California)
+3) us-west-2 : US West (Oregon)
+4) eu-west-1 : EU (Ireland)
+5) eu-central-1 : EU (Frankfurt)
+6) ap-southeast-1 : Asia Pacific (Singapore)
+7) ap-southeast-2 : Asia Pacific (Sydney)
+8) ap-northeast-1 : Asia Pacific (Tokyo)
+9) sa-east-1 : South America (Sao Paulo)
+10) cn-north-1 : China (Beijing)
+(default is 3): 
+
+
+I chose option 3, US Oregon region.
+
+If you haven’t set up the AWS CLI, the next prompt will ask you to put in your Amazon Access ID and Security Key for your account or IAM user.
+
+If you DON’T get prompted to input these credentials, you probably already have these set up and you can move on to the next section. If you DO get prompted for these credentials, follow the directions in the next section.
+
+5. Using an IAM User
+Let’s create a user specifically for our Elastic Beanstalk deployment. Visit the AWS IAM website here. On the sidebar, click Users. Hit the Add User button. Enter a name for the user and check Programmatic Access and hit Next.
+
+
+
+Hit the option for Attach existing policies directly.
+
+
+
+For purposes of this exercise, give the user AmazonEC2FullAccess, AmazonS3FullAccess, and AWSElasticBeanstalkFullAccess. You’ll want to refine these permissions for a production environment.
+
+
+
+When you finish creating the user, make sure you download the CSV with your Access Keys! Once you hit close, you will no longer be able to access the secret key and there is no way to recover it. Make sure you keep your keys safe. Anyone with these keys can access resources in your AWS account.
+
+
+
+When you’re finished, input these keys into the the terminal prompts for the EB CLI. You shouldn’t need to input these keys again in the CLI, but keep them for your records.
+
+6. Creating our Elastic Beanstalk Applications
+The next part of the eb init script has us create a new application. You may not see this exact screen because I already have another app. I’m going to choose option 2 to create a new application.
+
+Select an application to use
+1) my-other-app
+2) [ Create new Application ]
+(default is 2): 2
+
+Enter Application Name
+(default is "my_eb_site"): 
+Application my_eb_site has been created.
+
+
+The next part of the script asks you for an Application Name (will be auto-populated if you leave it blank), asks you if you’re using Python, and then asks which version of Python you want to use. Since I’m using Python 3, I will choose option 1 (If you’re using a version of Python newer than 3.4, you should be okay as long as you don’t use any syntax that’s specific to 3.5+ in your web app).
+
+It appears you are using Python. Is this correct?
+(y/n): y
+
+Select a platform version.
+1) Python 3.4
+2) Python
+3) Python 2.7
+4) Python 3.4 (Preconfigured - Docker)
+(default is 1): 1
+
+
+Next, you’ll be asked if you want to use AWS CodeCommit. We aren’t using CodeCommit so let’s say no.
+
+Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source control service. To learn more, see Docs: https://aws.amazon.com/codecommit/
+
+Do you wish to continue with CodeCommit? (y/N) (default is n): 
+
+
+You will then be asked if you want to enable SSH. In my case, I’d like to have SSH for troubleshooting reasons.
+
+Do you want to set up SSH for your instances?
+(y/n): y
+
+
+This will ask you to create a new key pair or use a previously existing one. I'm going to use a previously existing one.
+
+Select a keypair.
+1) aws-eb
+2) [ Create new KeyPair ]
+(default is 2): 1
+
+
+After this, we are almost ready to have the EB CLI deploy our code. There are still a couple more configuration items that we need to address.
+
+7. Additional Configuration Items
+Now before we use eb to create our instance in the cloud, we need to make some additional configuration settings.
+
+First, we need to "freeze" our packages installed with pip into a requirements file so our Elastic Beanstalk instance will automatically install them. This is done with:
+
+pip freeze > requirements.txt
+
+
+Next, we'll need to adjust some of the default configuration settings. We'll need to create a .ebextensions folder and a configuration file:
+
+mkdir .ebextensions
+nano .ebextensions/python.config
+
+
+Let's start by putting the following in our configuration file:
+
+option_settings:
+  "aws:elasticbeanstalk:application:environment":
+    DJANGO_SETTINGS_MODULE: "my_eb_site.settings"
+    PYTHONPATH: "$PYTHONPATH"
+  "aws:elasticbeanstalk:container:python":
+    WSGIPath: "my_eb_site/wsgi.py"
+    StaticFiles: "/static/=www/static/"
+
+
+You'll need to adjust where it says "my_eb_site" to whatever you named your Django project.
+
+In addition to this, we'll need to make sure we have Elastic Beanstalk install the PostgreSQL development libraries on our EC2 instance. If we don't do this, we'll get an error when we deploy our Django site to EB because it won't be able to install psycopg2. So add the following:
+
+packages:
+  yum:
+    postgresql95-devel: []
+
+
+We're almost ready to go! We need to change a couple more settings in our Django project in order for us to get this instance created.
+
+Since we want to create an RDS instance with an EC2 instance on Elastic Beanstalk, we need to put the RDS database settings into our settings.py file. Luckily, EB has some global python variables that we can put into our settings that make it pretty easy. We'll put this code in an if-else statement so our database environment will still work on our development machine. Feel free to adjust your local environment to the required settings.
+
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
@@ -103,6 +312,13 @@ if 'RDS_DB_NAME' in os.environ:
             'PASSWORD': os.environ['RDS_PASSWORD'],
             'HOST': os.environ['RDS_HOSTNAME'],
             'PORT': os.environ['RDS_PORT'],
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
