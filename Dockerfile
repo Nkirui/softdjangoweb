@@ -29,15 +29,15 @@ EXPOSE 8000
 # build app
 # RUN chmod +x runscript.sh
 
-# RUN python manage.py makemigrations --noinput
-RUN python manage.py migrate sites zero --fake 
+RUN python manage.py makemigrations 
+Run python manage.py migrate
 RUN python manage.py collectstatic --noinput 
-RUN python manage.py test --noinput
+RUN python manage.py test
 
 # Run command to create supperuser 
 # RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'nathankirui5@gmail.com', 'adminpass12345')" | python manage.py shell
 
 # Run CMD command to start the server
-CMD python manage.py runserver 0.0.0.0:8000  --insecure
+CMD python manage.py runserver 0.0.0.0:8000
 
 
