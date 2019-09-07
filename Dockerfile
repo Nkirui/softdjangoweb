@@ -30,9 +30,7 @@ EXPOSE 8000
 # RUN chmod +x runscript.sh
 
 # RUN python manage.py makemigrations --noinput
-RUN python manage.py migrate sites --noinput
-RUN python manage.py migrate --noinput
-
+RUN python manage.py migrate sites zero --fake 
 RUN python manage.py collectstatic --noinput 
 RUN python manage.py test --noinput
 
