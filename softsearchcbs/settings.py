@@ -106,16 +106,16 @@ if 'RDS_DB_NAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
-    
+
 else:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('RDS_DB_NAME'),
-        'USER': config('RDS_USERNAME'),
-        'PASSWORD': config('RDS_PASSWORD'),
-        'HOST': config('RDS_HOSTNAME'),
-        'PORT': config('RDS_PORT'),
+        'NAME': config('RDS_DB_NAME',default=None),
+        'USER': config('RDS_USERNAME',default=None),
+        'PASSWORD': config('RDS_PASSWORD'default=None),
+        'HOST': config('RDS_HOSTNAME',default=None),
+        'PORT': config('RDS_PORT',default=None),
     }
 }
 
