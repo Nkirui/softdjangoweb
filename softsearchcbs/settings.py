@@ -94,8 +94,6 @@ WSGI_APPLICATION = 'softsearchcbs.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 # RDS variables come automatically from AWS RDS
-
-if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -107,17 +105,6 @@ if 'RDS_DB_NAME' in os.environ:
         }
     }
 
-else:
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('RDS_DB_NAME',default='mydb'),
-        'USER': config('RDS_USERNAME',default='mtu'),
-        'PASSWORD': config('RDS_PASSWORD',default=None),
-        'HOST': config('RDS_HOSTNAME',default='localhost'),
-        'PORT': config('RDS_PORT',default=5432),
-    }
-}
 
 
 
