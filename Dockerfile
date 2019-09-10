@@ -9,6 +9,7 @@ ENV C_FORCE_ROOT true
 
 RUN mkdir /mdata
 WORKDIR /mdata
+
 COPY . /mdata
 
 RUN apk --update add libxml2-dev libxslt-dev libffi-dev gcc musl-dev libgcc openssl-dev curl \
@@ -22,6 +23,7 @@ RUN apk update \
     && apk del build-deps
 
 RUN pip install -r requirements.txt
+
 # EXPOSE port 8000 to allow communication to/from server
 EXPOSE 8000
 
@@ -35,7 +37,7 @@ RUN python manage.py makemigrations --noinput \
 
 # Run command to create supperuser 
 
-RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'nathankirui5@gmail.com', 'adminpass12345')" | python manage.py shell
+# RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'nathankirui5@gmail.com', 'adminpass12345')" | python manage.py shell
 
 # Run CMD command to start the server
 CMD python manage.py runserver 0.0.0.0:8000
