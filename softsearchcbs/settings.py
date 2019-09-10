@@ -106,7 +106,7 @@ if 'RDS_DB_NAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
-    
+
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
