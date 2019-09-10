@@ -113,7 +113,7 @@ else:
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': config('RDS_DB_NAME',default=None),
         'USER': config('RDS_USERNAME',default=None),
-        'PASSWORD': config('RDS_PASSWORD'default=None),
+        'PASSWORD': config('RDS_PASSWORD',default=None),
         'HOST': config('RDS_HOSTNAME',default=None),
         'PORT': config('RDS_PORT',default=None),
     }
