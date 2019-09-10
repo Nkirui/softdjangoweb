@@ -18,8 +18,8 @@ deploy:
   skip_cleanup: true
   provider: elasticbeanstalk
   region: "us-west-1"
-  app: "mysoftsearch"
-  env: "Mysoftsearch-env"
+  app: "softsearchdjango"
+  env: "Softsearchdjango-env"
   bucket_name: "elasticbeanstalk-us-west-1-736702276294"
   bucket_path: "softsearchdjango"
   skip_cleanup: true
