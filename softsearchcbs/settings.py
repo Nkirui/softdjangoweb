@@ -111,11 +111,11 @@ else:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('RDS_DB_NAME',default=None),
-        'USER': config('RDS_USERNAME',default=None),
+        'NAME': config('RDS_DB_NAME',default='mydb'),
+        'USER': config('RDS_USERNAME',default='mtu'),
         'PASSWORD': config('RDS_PASSWORD',default=None),
-        'HOST': config('RDS_HOSTNAME',default=None),
-        'PORT': config('RDS_PORT',default=None),
+        'HOST': config('RDS_HOSTNAME',default='localhost'),
+        'PORT': config('RDS_PORT',default=5432),
     }
 }
 
