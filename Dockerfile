@@ -30,7 +30,7 @@ EXPOSE 8000
 # build app
 # RUN chmod +x runscript.sh
 
-RUN python manage.py makemigrations cbsapp --noinput \
+RUN python manage.py makemigrations cbsapp cbsblog--noinput \
     && python manage.py migrate --noinput \
     && python manage.py collectstatic --noinput\ 
     && python manage.py test --noinput

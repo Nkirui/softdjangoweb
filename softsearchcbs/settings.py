@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='mysecret12345100%')
 
 
 # set debug to false
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # allowed host
 ALLOWED_HOSTS = ["*"]
