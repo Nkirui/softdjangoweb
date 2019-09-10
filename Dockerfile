@@ -28,10 +28,10 @@ EXPOSE 8000
 # build app
 # RUN chmod +x runscript.sh
 
-RUN python manage.py makemigrations \
-    && python manage.py migrate ] \
-    && python manage.py collectstatic \ 
-    && python manage.py test
+RUN python manage.py makemigrations --noinput \
+    && python manage.py migrate --noinput \
+    && python manage.py collectstatic --noinput\ 
+    && python manage.py test --noinput
 
 # Run command to create supperuser 
 
