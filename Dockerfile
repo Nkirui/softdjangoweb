@@ -40,6 +40,6 @@ RUN python manage.py makemigrations cbsapp cbsblog --noinput \
 RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'nathankirui5@gmail.com', 'adminpass12345')" | python manage.py shell
 
 # Run CMD command to start the server
-CMD python manage.py runserver 0.0.0.0:8000
+CMD python manage.py runserver 0.0.0.0:8000 --insecure
 
 

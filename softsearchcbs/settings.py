@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='mysecret12345100%')
 
 
 # set debug to false
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # allowed host
 ALLOWED_HOSTS = ["*"]
@@ -184,8 +184,11 @@ EMAIL_USE_SSL = config('EMAIL_USE_SSL',default=True)
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID',default=None)
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY',default=None)
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME',default=None)
+
 AWS_S3_FILE_OVERWRITE = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 AWS_DEFAULT_ACL = None
 
 
