@@ -32,7 +32,7 @@ EXPOSE 8000
 
 RUN python manage.py makemigrations cbsapp cbsblog --noinput \
     && python manage.py migrate --noinput \
-    && python manage.py collectstatic --noinput\ 
+    && python manage.py collectstatic --noinput \ 
     && python manage.py test --noinput
 
 # Run command to create supperuser 
